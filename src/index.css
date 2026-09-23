@@ -1,0 +1,60 @@
+/* =========================================================
+   RESET GLOBAL — index.css
+   Chargé avant App.css. Retire les valeurs par défaut du
+   template Vite (body en flex centré + #root plafonné à
+   1280px) qui empêchent le site d'être pleinement responsive
+   sur grand écran.
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* Le template Vite met display:flex + place-items:center
+     sur body par défaut : ça centre #root en boîte rétrécie
+     et casse tout le responsive. On annule explicitement. */
+  display: block;
+  place-items: unset;
+
+  overflow-x: hidden;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  /* Le template Vite met max-width:1280px, padding:2rem et
+     text-align:center sur #root par défaut : on annule pour
+     laisser App.css gérer toute la largeur de la page. */
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
