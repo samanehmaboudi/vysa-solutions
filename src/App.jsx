@@ -16,7 +16,11 @@ const IconMonitor = () => (
 const IconWordpress = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
     <circle cx="12" cy="12" r="9" />
-    <path d="M4.5 10h1.8l2.6 7.3L10.6 12 9 7.7H7.4M13.2 7.7h4.9M15.4 10l2 6-1 3M12 7.7l3.2 9" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M4.5 10h1.8l2.6 7.3L10.6 12 9 7.7H7.4M13.2 7.7h4.9M15.4 10l2 6-1 3M12 7.7l3.2 9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -77,7 +81,11 @@ const IconQuote = () => (
 const IconLinkedin = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
     <rect x="3" y="3" width="18" height="18" rx="3" />
-    <path d="M7.5 10.5v6M7.5 7.5v.01M12 16.5v-3.7c0-1.5 1-2.3 2.2-2.3 1.2 0 1.8.9 1.8 2.3v3.7" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M7.5 10.5v6M7.5 7.5v.01M12 16.5v-3.7c0-1.5 1-2.3 2.2-2.3 1.2 0 1.8.9 1.8 2.3v3.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -139,14 +147,28 @@ function App() {
 
         <div className={`mobile-menu ${menuOpen ? "is-open" : ""}`}>
           <nav className="mobile-nav">
-            <a href="#home" onClick={closeMenu}>Accueil</a>
-            <a href="#services" onClick={closeMenu}>Services</a>
-            <a href="#work" onClick={closeMenu}>Réalisations</a>
-            <a href="#about" onClick={closeMenu}>À propos</a>
-            <a href="#contact" onClick={closeMenu}>Contact</a>
+            <a href="#home" onClick={closeMenu}>
+              Accueil
+            </a>
+            <a href="#services" onClick={closeMenu}>
+              Services
+            </a>
+            <a href="#work" onClick={closeMenu}>
+              Réalisations
+            </a>
+            <a href="#about" onClick={closeMenu}>
+              À propos
+            </a>
+            <a href="#contact" onClick={closeMenu}>
+              Contact
+            </a>
           </nav>
 
-          <a href="#contact" className="header-btn mobile-cta" onClick={closeMenu}>
+          <a
+            href="#contact"
+            className="header-btn mobile-cta"
+            onClick={closeMenu}
+          >
             Parlons-en →
           </a>
         </div>
@@ -161,7 +183,9 @@ function App() {
 
           <div className="container hero-inner">
             <div className="hero-content">
-              <p className="eyebrow">SOLUTIONS NUMÉRIQUES POUR PETITES ENTREPRISES</p>
+              <p className="eyebrow">
+                SOLUTIONS NUMÉRIQUES POUR PETITES ENTREPRISES
+              </p>
 
               <h1>
                 Renforcez votre
@@ -181,8 +205,12 @@ function App() {
               </p>
 
               <div className="hero-buttons">
-                <a href="#contact" className="primary-btn">Démarrer mon projet →</a>
-                <a href="#work" className="secondary-btn">Voir nos réalisations</a>
+                <a href="#contact" className="primary-btn">
+                  Démarrer mon projet →
+                </a>
+                <a href="#work" className="secondary-btn">
+                  Voir nos réalisations
+                </a>
               </div>
 
               <div className="hero-benefits">
@@ -203,10 +231,16 @@ function App() {
                 Ensemble
               </span>
 
-              <img src={heroImage} alt="Illustration VYSA Solutions" className="hero-image" />
+              <img
+                src={heroImage}
+                alt="Illustration VYSA Solutions"
+                className="hero-image"
+              />
 
               <div className="hero-floating-card">
-                <span className="hero-floating-icon"><IconChart /></span>
+                <span className="hero-floating-icon">
+                  <IconChart />
+                </span>
                 <p>Des solutions pour faire grandir votre entreprise.</p>
               </div>
             </div>
@@ -219,42 +253,64 @@ function App() {
             <div className="section-heading">
               <div>
                 <p className="section-eyebrow">NOS SERVICES</p>
-                <h2>Tout ce dont votre entreprise a besoin pour grandir en ligne.</h2>
+                <h2>
+                  Tout ce dont votre entreprise a besoin pour grandir en ligne.
+                </h2>
               </div>
 
               <p className="section-intro">
-                Des sites professionnels aux intégrations pratiques, nous
-                créons des solutions simples, modernes et adaptées aux besoins
-                réels des petites entreprises.
+                Des sites professionnels aux intégrations pratiques, nous créons
+                des solutions simples, modernes et adaptées aux besoins réels
+                des petites entreprises.
               </p>
             </div>
 
             <div className="services-grid">
               <article className="service-card">
-                <div className="service-icon"><IconMonitor /></div>
+                <div className="service-icon">
+                  <IconMonitor />
+                </div>
                 <h3>Création de sites web</h3>
-                <p>Des sites modernes, rapides, professionnels et parfaitement adaptés aux mobiles.</p>
+                <p>
+                  Des sites modernes, rapides, professionnels et parfaitement
+                  adaptés aux mobiles.
+                </p>
                 <a href="#contact">En savoir plus →</a>
               </article>
 
               <article className="service-card">
-                <div className="service-icon"><IconWordpress /></div>
+                <div className="service-icon">
+                  <IconWordpress />
+                </div>
                 <h3>WordPress &amp; développement</h3>
-                <p>WordPress, React et solutions adaptées aux besoins de votre entreprise.</p>
+                <p>
+                  WordPress, React et solutions adaptées aux besoins de votre
+                  entreprise.
+                </p>
                 <a href="#contact">En savoir plus →</a>
               </article>
 
               <article className="service-card">
-                <div className="service-icon"><IconCalendar /></div>
+                <div className="service-icon">
+                  <IconCalendar />
+                </div>
                 <h3>Réservation &amp; formulaires</h3>
-                <p>Rendez-vous, formulaires, Google Maps et intégrations pour simplifier l’expérience de vos clients.</p>
+                <p>
+                  Rendez-vous, formulaires, Google Maps et intégrations pour
+                  simplifier l’expérience de vos clients.
+                </p>
                 <a href="#contact">En savoir plus →</a>
               </article>
 
               <article className="service-card">
-                <div className="service-icon"><IconSettings /></div>
+                <div className="service-icon">
+                  <IconSettings />
+                </div>
                 <h3>Maintenance &amp; soutien</h3>
-                <p>Mises à jour, entretien et accompagnement pour garder votre présence numérique performante.</p>
+                <p>
+                  Mises à jour, entretien et accompagnement pour garder votre
+                  présence numérique performante.
+                </p>
                 <a href="#contact">En savoir plus →</a>
               </article>
             </div>
@@ -285,14 +341,22 @@ function App() {
                 <span>Design moderne</span>
               </div>
 
-              <a href="#contact" className="primary-btn project-btn">Voir le projet →</a>
+              <a href="#contact" className="primary-btn project-btn">
+                Voir le projet →
+              </a>
             </div>
 
             <div className="project-image-wrapper">
-              <img src={belleRoseImage} alt="Projet Belle Rose Salon" className="project-image" />
+              <img
+                src={belleRoseImage}
+                alt="Projet Belle Rose Salon"
+                className="project-image"
+              />
 
               <aside className="testimonial-card">
-                <span className="testimonial-quote"><IconQuote /></span>
+                <span className="testimonial-quote">
+                  <IconQuote />
+                </span>
                 <p>
                   Un site magnifique qui reflète parfaitement notre image.
                   Professionnel, à l’écoute et très efficace. Merci VYSA !
@@ -317,21 +381,36 @@ function App() {
 
             <div className="why-grid">
               <article>
-                <div className="why-icon"><IconDiamond /></div>
+                <div className="why-icon">
+                  <IconDiamond />
+                </div>
                 <h3>Design professionnel</h3>
-                <p>Une présence moderne qui inspire confiance dès la première visite.</p>
+                <p>
+                  Une présence moderne qui inspire confiance dès la première
+                  visite.
+                </p>
               </article>
 
               <article>
-                <div className="why-icon"><IconTarget /></div>
+                <div className="why-icon">
+                  <IconTarget />
+                </div>
                 <h3>Solutions adaptées</h3>
-                <p>Nous choisissons la bonne technologie selon vos besoins, sans complexité inutile.</p>
+                <p>
+                  Nous choisissons la bonne technologie selon vos besoins, sans
+                  complexité inutile.
+                </p>
               </article>
 
               <article>
-                <div className="why-icon"><IconUsers /></div>
+                <div className="why-icon">
+                  <IconUsers />
+                </div>
                 <h3>Accompagnement humain</h3>
-                <p>Une communication claire et un accompagnement avant, pendant et après le projet.</p>
+                <p>
+                  Une communication claire et un accompagnement avant, pendant
+                  et après le projet.
+                </p>
               </article>
             </div>
           </div>
@@ -347,35 +426,74 @@ function App() {
 
           <div className="container contact-wrapper">
             <div className="contact-content">
-              <p className="section-eyebrow light-eyebrow">PARLONS DE VOTRE PROJET</p>
+              <p className="section-eyebrow light-eyebrow">
+                PARLONS DE VOTRE PROJET
+              </p>
+
               <h2>Prêt à faire grandir votre entreprise ?</h2>
+
               <p>
                 Discutons de vos besoins et voyons comment nous pouvons vous
                 aider à atteindre vos objectifs en ligne.
               </p>
             </div>
 
-            <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+            <form
+              className="contact-form"
+              action="https://formspree.io/f/moevldpd"
+              method="POST"
+            >
               <div className="form-row">
                 <div>
                   <label htmlFor="name">Nom complet *</label>
-                  <input id="name" type="text" placeholder="Votre nom" />
+
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Votre nom"
+                    maxLength="100"
+                    required
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="email">Courriel *</label>
-                  <input id="email" type="email" placeholder="votre@courriel.com" />
+
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="votre@courriel.com"
+                    maxLength="150"
+                    required
+                  />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="business">Entreprise</label>
-                <input id="business" type="text" placeholder="Nom de votre entreprise" />
+
+                <input
+                  id="business"
+                  name="business"
+                  type="text"
+                  placeholder="Nom de votre entreprise"
+                  maxLength="150"
+                />
               </div>
 
               <div>
                 <label htmlFor="message">Votre message *</label>
-                <textarea id="message" rows="5" placeholder="Parlez-nous brièvement de votre projet..."></textarea>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Parlez-nous brièvement de votre projet..."
+                  maxLength="2000"
+                  required
+                ></textarea>
               </div>
 
               <button type="submit">Envoyer ma demande →</button>
@@ -391,7 +509,9 @@ function App() {
             <div className="footer-brand">
               <strong>VYSA</strong> Solutions
             </div>
-            <p>Des solutions numériques simples pour des entreprises solides.</p>
+            <p>
+              Des solutions numériques simples pour des entreprises solides.
+            </p>
           </div>
 
           <div className="footer-links">
@@ -410,8 +530,12 @@ function App() {
           </div>
 
           <div className="footer-social">
-            <a href="#" aria-label="LinkedIn"><IconLinkedin /></a>
-            <a href="#" aria-label="Instagram"><IconInstagram /></a>
+            <a href="#" aria-label="LinkedIn">
+              <IconLinkedin />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <IconInstagram />
+            </a>
           </div>
 
           <p className="footer-badge">
