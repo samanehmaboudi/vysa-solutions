@@ -1122,6 +1122,31 @@ svg {
   cursor: pointer;
 }
 
+.form-success {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #edf6f1;
+  color: #2d5b4f;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.form-error {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff1f3;
+  color: #8c2745;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.contact-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 /* =========================================================
    FOOTER
 ========================================================= */

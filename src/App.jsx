@@ -108,6 +108,40 @@ function App() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const [formStatus, setFormStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    setIsSubmitting(true);
+    setFormStatus("");
+
+    try {
+      const response = await fetch("https://formspree.io/f/moevldpd", {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi");
+      }
+
+      form.reset();
+      setFormStatus("success");
+    } catch (error) {
+      console.error(error);
+      setFormStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       {/* ================= HEADER ================= */}
@@ -415,7 +449,6 @@ function App() {
             </div>
           </div>
         </section>
-
         {/* ================= CONTACT ================= */}
         <section id="contact" className="contact-section">
           <span className="contact-decorative">
@@ -438,11 +471,7 @@ function App() {
               </p>
             </div>
 
-            <form
-              className="contact-form"
-              action="https://formspree.io/f/moevldpd"
-              method="POST"
-            >
+            <form className="contact-form" onSubmit={handleContactSubmit}>
               <div className="form-row">
                 <div>
                   <label htmlFor="name">Nom complet *</label>
@@ -496,7 +525,23 @@ function App() {
                 ></textarea>
               </div>
 
-              <button type="submit">Envoyer ma demande →</button>
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande →"}
+              </button>
+
+              {formStatus === "success" && (
+                <p className="form-success">
+                  ✓ Merci ! Votre demande a bien été envoyée. Nous vous
+                  répondrons dans les plus brefs délais.
+                </p>
+              )}
+
+              {formStatus === "error" && (
+                <p className="form-error">
+                  Une erreur est survenue. Veuillez réessayer dans quelques
+                  instants.
+                </p>
+              )}
             </form>
           </div>
         </section>
