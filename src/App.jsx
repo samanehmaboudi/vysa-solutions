@@ -375,7 +375,12 @@ function App() {
                 <span>Design moderne</span>
               </div>
 
-              <a href="#contact" className="primary-btn project-btn">
+              <a
+                href="https://belle-rose-salon.vercel.app"
+                className="primary-btn project-btn"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Voir le projet →
               </a>
             </div>
