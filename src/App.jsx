@@ -3,6 +3,7 @@ import "./App.css";
 
 import heroImage from "./assets/vysa-hero.png";
 import belleRoseImage from "./assets/belle-rose-project.png";
+import sereniteImage from "./assets/serenite-project.jpg";
 
 /* ================= ICONES (SVG inline, aucune dépendance) ================= */
 
@@ -402,6 +403,48 @@ function App() {
                 </p>
                 <span className="testimonial-author">— Belle Rose Salon</span>
               </aside>
+            </div>
+          </div>
+
+          {/* ----- Projet 2 : Sérénité Massage ----- */}
+          <div className="container project-grid project-grid--reverse">
+            <div className="project-content">
+              <p className="section-eyebrow">PROJET RÉCENT</p>
+              <h2>Sérénité Massage</h2>
+
+              <p className="project-lead">
+                Un site apaisant et professionnel pour une massothérapeute à
+                Repentigny.
+              </p>
+
+              <p className="project-text">
+                Une présentation claire des soins, une ambiance visuelle
+                chaleureuse, un accès rapide à la prise de rendez-vous et une
+                carte Google Maps pour trouver facilement le cabinet.
+              </p>
+
+              <div className="project-tags">
+                <span>React</span>
+                <span>Responsive</span>
+                <span>Google Maps</span>
+              </div>
+
+              <a
+                href="https://serenite-massage.vercel.app"
+                className="primary-btn project-btn"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Voir le projet →
+              </a>
+            </div>
+
+            <div className="project-image-wrapper">
+              <img
+                src={sereniteImage}
+                alt="Projet Sérénité Massage & Bien-être"
+                className="project-image"
+              />
             </div>
           </div>
         </section>
