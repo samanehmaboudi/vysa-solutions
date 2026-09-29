@@ -356,7 +356,7 @@ function App() {
         <section id="work" className="project-section">
           <div className="container project-grid">
             <div className="project-content">
-              <p className="section-eyebrow">PROJET EN VEDETTE</p>
+              <p className="section-eyebrow">PROJET CONCEPT</p>
               <h2>Belle Rose Salon</h2>
 
               <p className="project-lead">
@@ -392,24 +392,13 @@ function App() {
                 alt="Projet Belle Rose Salon"
                 className="project-image"
               />
-
-              <aside className="testimonial-card">
-                <span className="testimonial-quote">
-                  <IconQuote />
-                </span>
-                <p>
-                  Un site magnifique qui reflète parfaitement notre image.
-                  Professionnel, à l’écoute et très efficace. Merci VYSA !
-                </p>
-                <span className="testimonial-author">— Belle Rose Salon</span>
-              </aside>
             </div>
           </div>
 
           {/* ----- Projet 2 : Sérénité Massage ----- */}
           <div className="container project-grid project-grid--reverse">
             <div className="project-content">
-              <p className="section-eyebrow">PROJET RÉCENT</p>
+              <p className="section-eyebrow">PROJET CONCEPT</p>
               <h2>Sérénité Massage</h2>
 
               <p className="project-lead">
