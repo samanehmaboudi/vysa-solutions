@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&display=swap");
 
 /* =========================================================
    VYSA - VARIABLES
@@ -53,7 +53,7 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: "Manrope", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 
   color: var(--text);
 
@@ -148,9 +148,9 @@ svg {
 
 .brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
-  gap: 6px;
+  gap: 12px;
 
   margin-right: auto;
 
@@ -159,20 +159,37 @@ svg {
   flex-shrink: 0;
 }
 
-.brand-main {
-  color: var(--primary);
+.brand-mark {
+  width: 46px;
+  height: 46px;
 
-  font-size: 1.9rem;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.brand-main {
+  color: var(--text);
+
+  font-size: 1.6rem;
   font-weight: 800;
+  letter-spacing: 0.12em;
 
   line-height: 1;
 }
 
 .brand-sub {
-  color: var(--text);
+  color: var(--primary);
 
-  font-size: 1.65rem;
-  font-weight: 500;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 
   line-height: 1;
 }
@@ -428,15 +445,15 @@ svg {
   color: var(--text);
 
   font-family:
-    "Cormorant Garamond",
+    "Newsreader",
     Georgia,
     serif;
 
-  font-size: clamp(3rem, 4vw, 4.7rem);
+  font-size: clamp(2.8rem, 3.8vw, 4.3rem);
 
   font-weight: 600;
 
-  line-height: 0.99;
+  line-height: 1.06;
 
   letter-spacing: -0.015em;
 }
@@ -569,7 +586,7 @@ svg {
   color: var(--primary);
 
   font-family:
-    "Cormorant Garamond",
+    "Newsreader",
     Georgia,
     serif;
 
@@ -671,16 +688,16 @@ svg {
   color: var(--text);
 
   font-family:
-    "Cormorant Garamond",
+    "Newsreader",
     Georgia,
     serif;
 
   font-size:
-    clamp(2.8rem, 3.7vw, 4.15rem);
+    clamp(2.5rem, 3.3vw, 3.8rem);
 
   font-weight: 600;
 
-  line-height: 0.98;
+  line-height: 1.06;
 
   letter-spacing: -0.02em;
 }
@@ -994,7 +1011,7 @@ svg {
     rgba(255, 255, 255, 0.55);
 
   font-family:
-    "Cormorant Garamond",
+    "Newsreader",
     Georgia,
     serif;
 
@@ -1171,13 +1188,40 @@ svg {
 }
 
 .footer-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
   color: #ffffff;
 
-  font-size: 1.55rem;
+  font-size: 1.45rem;
 }
 
 .footer-brand strong {
+  color: #ffffff;
+
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.footer-brand-mark {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+}
+
+.footer-brand-sub {
+  display: block;
+  margin-top: 6px;
+
   color: #d08a9d;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .footer-top p {
@@ -1348,7 +1392,7 @@ svg {
 
   .hero h1 {
     font-size:
-      clamp(2.8rem, 4.1vw, 4rem);
+      clamp(2.7rem, 3.9vw, 3.7rem);
   }
 
   .hero-image {
@@ -1402,11 +1446,11 @@ svg {
   }
 
   .brand-main {
-    font-size: 1.75rem;
+    font-size: 1.45rem;
   }
 
   .brand-sub {
-    font-size: 1.48rem;
+    font-size: 0.68rem;
   }
 
   .hero-inner {
@@ -1424,7 +1468,7 @@ svg {
 
   .hero h1 {
     font-size:
-      clamp(2.7rem, 6vw, 3.8rem);
+      clamp(2.5rem, 5.6vw, 3.5rem);
 
     line-height: 1;
   }
@@ -1510,7 +1554,7 @@ svg {
   }
 
   .hero h1 {
-    font-size: clamp(2.35rem, 10vw, 3rem);
+    font-size: clamp(2.2rem, 9.2vw, 2.8rem);
     line-height: 1.02;
     letter-spacing: -0.01em;
   }
@@ -1635,15 +1679,24 @@ svg {
   }
 
   .brand-main {
-    font-size: 1.45rem;
+    font-size: 1.2rem;
   }
 
   .brand-sub {
-    font-size: 1.08rem;
+    font-size: 0.55rem;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand {
+    gap: 10px;
   }
 
   .hero h1 {
-    font-size: 2.25rem;
+    font-size: 2.15rem;
   }
 }
 /* =========================================================
@@ -1678,4 +1731,481 @@ svg {
   .project-grid--reverse .project-image-wrapper {
     order: 0;
   }
+}
+
+
+/* =========================================================
+   HERO MOCKUP — maquette HTML/CSS (remplace vysa-hero.png)
+   Toutes les tailles sont en "em" : la maquette entière
+   se redimensionne avec la font-size de .hero-mockup.
+========================================================= */
+
+.hero-mockup {
+  position: relative;
+
+  font-size: clamp(9px, 0.95vw, 14px);
+
+  padding: 0 7% 15% 0;
+
+  filter: none;
+}
+
+.mk-browser {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid var(--line);
+  border-radius: 1.2em;
+
+  box-shadow: var(--shadow-md);
+}
+
+.mk-bar {
+  display: flex;
+  align-items: center;
+
+  gap: 1.2em;
+
+  padding: 0.9em 1.2em;
+
+  background: var(--surface-soft);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.mk-dots {
+  display: flex;
+  gap: 0.4em;
+}
+
+.mk-dots i {
+  width: 0.7em;
+  height: 0.7em;
+
+  border-radius: 50%;
+
+  background: var(--line);
+}
+
+.mk-dots i:first-child {
+  background: #d08a9d;
+}
+
+.mk-url {
+  flex: 1;
+
+  max-width: 22em;
+
+  padding: 0.35em 1em;
+
+  color: var(--muted);
+
+  font-size: 0.85em;
+
+  background: #ffffff;
+
+  border-radius: 999px;
+}
+
+.mk-page {
+  padding: 1.6em 2em 2em;
+}
+
+.mk-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 1.5em;
+
+  margin-bottom: 2em;
+}
+
+.mk-logo {
+  margin-right: auto;
+
+  color: var(--text);
+
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.35em;
+  font-weight: 700;
+}
+
+.mk-links {
+  display: flex;
+  gap: 1.3em;
+
+  color: var(--muted);
+
+  font-size: 0.85em;
+  font-style: normal;
+}
+
+.mk-links i {
+  font-style: normal;
+}
+
+.mk-nav-btn {
+  padding: 0.45em 1em;
+
+  color: #ffffff;
+
+  font-size: 0.8em;
+  font-weight: 700;
+
+  background: var(--primary);
+
+  border-radius: 0.5em;
+}
+
+.mk-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+
+  gap: 1.5em;
+
+  padding: 1.8em;
+
+  background: var(--surface-soft);
+
+  border-radius: 1em;
+}
+
+.mk-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 0.8em;
+}
+
+.mk-eyebrow {
+  color: var(--green);
+
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mk-title {
+  color: var(--text);
+
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 2.1em;
+  font-weight: 700;
+
+  line-height: 1.05;
+}
+
+.mk-lines {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.45em;
+
+  width: 100%;
+}
+
+.mk-lines i {
+  height: 0.5em;
+
+  background: var(--line);
+
+  border-radius: 999px;
+}
+
+.mk-lines i:last-child {
+  width: 70%;
+}
+
+.mk-cta {
+  margin-top: 0.4em;
+
+  padding: 0.6em 1.2em;
+
+  color: #ffffff;
+
+  font-size: 0.85em;
+  font-weight: 700;
+
+  background: var(--primary);
+
+  border-radius: 0.55em;
+}
+
+.mk-hero-art {
+  position: relative;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(145deg, var(--primary-soft), #ffffff 70%);
+
+  border-radius: 1em;
+}
+
+.mk-circle {
+  position: absolute;
+
+  inset: 18% 18% 18% 18%;
+
+  background:
+    radial-gradient(circle at 35% 35%, #d08a9d, var(--primary));
+
+  border-radius: 50%;
+
+  opacity: 0.85;
+}
+
+.mk-leaf {
+  position: absolute;
+
+  right: -10%;
+  bottom: -12%;
+
+  width: 60%;
+  height: 60%;
+
+  background: var(--green);
+
+  border-radius: 0 100% 0 100%;
+
+  opacity: 0.8;
+}
+
+.mk-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1em;
+
+  margin-top: 1.4em;
+}
+
+.mk-services span {
+  padding: 1em;
+
+  color: var(--text);
+
+  font-size: 0.85em;
+  font-weight: 600;
+
+  border: 1px solid var(--line);
+  border-radius: 0.8em;
+}
+
+.mk-services span::before {
+  content: "";
+
+  display: block;
+
+  width: 1.8em;
+  height: 1.8em;
+
+  margin-bottom: 0.7em;
+
+  background: var(--primary-soft);
+
+  border-radius: 0.5em;
+}
+
+/* ----- Téléphone ----- */
+
+.mk-phone {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 30%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7em;
+
+  padding: 1.6em 1em 1.2em;
+
+  background: #ffffff;
+
+  border: 0.45em solid var(--text);
+  border-radius: 1.8em;
+
+  box-shadow: var(--shadow-md);
+}
+
+.mk-phone-notch {
+  position: absolute;
+
+  top: 0.5em;
+  left: 50%;
+
+  width: 30%;
+  height: 0.45em;
+
+  background: var(--text);
+
+  border-radius: 999px;
+
+  transform: translateX(-50%);
+}
+
+.mk-phone-title {
+  color: var(--text);
+
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.mk-phone-month {
+  color: var(--muted);
+
+  font-size: 0.72em;
+  font-weight: 600;
+}
+
+.mk-cal {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 0.25em;
+}
+
+.mk-cal i,
+.mk-slots i {
+  display: grid;
+  place-items: center;
+
+  color: var(--text);
+
+  font-size: 0.62em;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.mk-cal i {
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+}
+
+.mk-cal i.is-active,
+.mk-slots i.is-active {
+  color: #ffffff;
+
+  background: var(--primary);
+}
+
+.mk-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 0.3em;
+}
+
+.mk-slots i {
+  padding: 0.45em 0;
+
+  border: 1px solid var(--line);
+  border-radius: 0.5em;
+}
+
+.mk-slots i.is-active {
+  border-color: var(--primary);
+}
+
+.mk-phone-btn {
+  padding: 0.6em;
+
+  color: #ffffff;
+
+  font-size: 0.75em;
+  font-weight: 700;
+  text-align: center;
+
+  background: var(--primary);
+
+  border-radius: 0.6em;
+}
+
+/* ----- Badge ----- */
+
+.mk-badge {
+  position: absolute;
+
+  top: 24%;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.6em;
+
+  padding: 0.7em 1em;
+
+  color: var(--text);
+
+  font-size: 0.85em;
+  font-weight: 700;
+
+  background: #ffffff;
+
+  border-radius: 0.8em;
+
+  box-shadow: var(--shadow-md);
+}
+
+.mk-badge span {
+  display: grid;
+  place-items: center;
+
+  width: 1.6em;
+  height: 1.6em;
+
+  color: #ffffff;
+
+  background: var(--green);
+
+  border-radius: 50%;
+}
+
+/* ----- Avec la maquette : décor masqué, carte sous le navigateur ----- */
+
+.hero-decorative {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  .hero-visual .hero-floating-card {
+    left: 0;
+    bottom: 0;
+  }
+}
+
+/* ----- Mobile : la maquette grossit avec la largeur ----- */
+
+@media (max-width: 760px) {
+  .hero-mockup {
+    font-size: 2.6vw;
+  }
+
+  .mk-links {
+    display: none;
+  }
+}
+
+
+/* Titres : pas de ligature « fi » collée */
+h1,
+h2,
+h3,
+.mk-title,
+.mk-logo,
+.mk-phone-title {
+  font-variant-ligatures: no-common-ligatures;
 }

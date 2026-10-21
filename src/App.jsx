@@ -1,9 +1,127 @@
 import { useState } from "react";
 import "./App.css";
 
-import heroImage from "./assets/vysa-hero.png";
 import belleRoseImage from "./assets/belle-rose-project.png";
 import sereniteImage from "./assets/serenite-project.jpg";
+
+/* ================= LOGO VYSARA (ترنج — médaillon de tapis persan) ================= */
+
+const LogoMark = ({ className = "", onDark = false }) => (
+  <svg
+    className={className}
+    viewBox="0 0 50 50"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <circle cx="25" cy="25" r="24" fill="#16284B" />
+    {onDark && (
+      <circle
+        cx="25"
+        cy="25"
+        r="24"
+        fill="none"
+        stroke="#F7F3EC"
+        strokeOpacity="0.25"
+        strokeWidth="1"
+      />
+    )}
+    <path
+      d="M25 9 C28.5 15 34 20 40 25 C34 30 28.5 35 25 41 C21.5 35 16 30 10 25 C16 20 21.5 15 25 9 Z"
+      fill="none"
+      stroke="#F7F3EC"
+      strokeWidth="1.6"
+    />
+    <path
+      d="M25 16 C27 19.5 30.5 22 33.5 25 C30.5 28 27 30.5 25 34 C23 30.5 19.5 28 16.5 25 C19.5 22 23 19.5 25 16 Z"
+      fill="#8C2745"
+    />
+    <circle cx="25" cy="25" r="3" fill="#E7B3C2" />
+    <circle cx="25" cy="6.5" r="1.3" fill="#7FA89C" />
+    <circle cx="25" cy="43.5" r="1.3" fill="#7FA89C" />
+  </svg>
+);
+
+/* ================= MAQUETTE HERO (HTML/CSS, sans image) ================= */
+
+const HeroMockup = () => (
+  <div
+    className="hero-image hero-mockup"
+    role="img"
+    aria-label="Exemple de site web et de réservation en ligne créé par Vysara"
+  >
+    <div className="mk-browser">
+      <div className="mk-bar">
+        <span className="mk-dots">
+          <i />
+          <i />
+          <i />
+        </span>
+        <span className="mk-url">votre-entreprise.ca</span>
+      </div>
+
+      <div className="mk-page">
+        <div className="mk-nav">
+          <span className="mk-logo">Votre commerce</span>
+          <span className="mk-links">
+            <i>Services</i>
+            <i>À propos</i>
+            <i>Contact</i>
+          </span>
+          <span className="mk-nav-btn">Réserver</span>
+        </div>
+
+        <div className="mk-hero">
+          <div className="mk-hero-text">
+            <span className="mk-eyebrow">Salon de beauté</span>
+            <strong className="mk-title">
+              Votre beauté,
+              <br />
+              notre savoir-faire.
+            </strong>
+            <span className="mk-lines">
+              <i />
+              <i />
+            </span>
+            <span className="mk-cta">Réserver en ligne</span>
+          </div>
+          <div className="mk-hero-art" aria-hidden="true">
+            <span className="mk-circle" />
+            <span className="mk-leaf" />
+          </div>
+        </div>
+
+        <div className="mk-services">
+          <span>Coiffure</span>
+          <span>Soins</span>
+          <span>Maquillage</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="mk-phone">
+      <div className="mk-phone-notch" />
+      <span className="mk-phone-title">Réservation</span>
+      <span className="mk-phone-month">Novembre</span>
+      <div className="mk-cal">
+        {Array.from({ length: 14 }, (_, i) => (
+          <i key={i} className={i === 9 ? "is-active" : ""}>
+            {i + 3}
+          </i>
+        ))}
+      </div>
+      <div className="mk-slots">
+        <i>10:00</i>
+        <i className="is-active">11:30</i>
+        <i>14:00</i>
+      </div>
+      <span className="mk-phone-btn">Confirmer</span>
+    </div>
+
+    <div className="mk-badge">
+      <span>✓</span> Réservation confirmée
+    </div>
+  </div>
+);
 
 /* ================= ICONES (SVG inline, aucune dépendance) ================= */
 
@@ -149,8 +267,11 @@ function App() {
       <header className="site-header">
         <div className="container header-inner">
           <a href="#home" className="brand" onClick={closeMenu}>
-            <span className="brand-main">VYSA</span>
-            <span className="brand-sub">Solutions</span>
+            <LogoMark className="brand-mark" />
+            <span className="brand-text">
+              <span className="brand-main">VYSARA</span>
+              <span className="brand-sub">Sites web &amp; applications</span>
+            </span>
           </a>
 
           <nav className="main-nav desktop-nav">
@@ -266,11 +387,7 @@ function App() {
                 Ensemble
               </span>
 
-              <img
-                src={heroImage}
-                alt="Illustration VYSA Solutions"
-                className="hero-image"
-              />
+              <HeroMockup />
 
               <div className="hero-floating-card">
                 <span className="hero-floating-icon">
@@ -438,11 +555,11 @@ function App() {
           </div>
         </section>
 
-        {/* ================= WHY VYSA ================= */}
+        {/* ================= WHY VYSARA ================= */}
         <section id="about" className="why-section">
           <div className="container">
             <div className="why-heading">
-              <p className="section-eyebrow">POURQUOI VYSA</p>
+              <p className="section-eyebrow">POURQUOI VYSARA</p>
               <h2>Un partenaire numérique orienté vers vos résultats.</h2>
               <p>
                 Nous ne voulons pas simplement créer un joli site. Chaque
@@ -589,7 +706,13 @@ function App() {
         <div className="container footer-top">
           <div>
             <div className="footer-brand">
-              <strong>VYSA</strong> Solutions
+              <LogoMark className="footer-brand-mark" onDark />
+              <span>
+                <strong>VYSARA</strong>
+                <span className="footer-brand-sub">
+                  Sites web &amp; applications
+                </span>
+              </span>
             </div>
             <p>
               Des solutions numériques simples pour des entreprises solides.
@@ -607,7 +730,8 @@ function App() {
 
         <div className="container footer-bottom">
           <div className="footer-bottom-left">
-            <p>© 2026 VYSA Solutions. Tous droits réservés.</p>
+            <p>© 2026 Vysara Solutions numériques. Tous droits réservés.</p>
+            <p>NEQ 2282688573</p>
             <p>Québec, Canada</p>
           </div>
 
