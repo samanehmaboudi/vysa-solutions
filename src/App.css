@@ -705,7 +705,7 @@ svg {
 .section-intro,
 .project-text,
 .why-heading > p:last-child,
-.contact-content p:last-child {
+.contact-content p:last-of-type {
   color: var(--muted);
 
   font-size: 1rem;
@@ -1046,7 +1046,7 @@ svg {
   color: #ffffff;
 }
 
-.contact-content p:last-child {
+.contact-content p:last-of-type {
   max-width: 520px;
 
   margin-top: 24px;
@@ -2209,3 +2209,25 @@ h3,
 .mk-phone-title {
   font-variant-ligatures: no-common-ligatures;
 }
+
+/* ================= EMAIL LINKS ================= */
+.contact-email {
+  display: inline-block;
+  margin-top: 22px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+.contact-email:hover { border-color: #ffffff; opacity: 0.9; }
+.footer-email {
+  display: inline-block;
+  margin-top: 12px;
+  color: #d08a9d;
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-email:hover { color: #ffffff; }

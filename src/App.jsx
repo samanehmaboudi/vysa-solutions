@@ -623,6 +623,10 @@ function App() {
                 Discutons de vos besoins et voyons comment nous pouvons vous
                 aider à atteindre vos objectifs en ligne.
               </p>
+
+              <a className="contact-email" href="mailto:contact@vysara.ca">
+                contact@vysara.ca
+              </a>
             </div>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
@@ -717,6 +721,9 @@ function App() {
             <p>
               Des solutions numériques simples pour des entreprises solides.
             </p>
+            <a className="footer-email" href="mailto:contact@vysara.ca">
+              contact@vysara.ca
+            </a>
           </div>
 
           <div className="footer-links">
