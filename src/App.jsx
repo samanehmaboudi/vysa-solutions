@@ -743,10 +743,10 @@ function App() {
           </div>
 
           <div className="footer-social">
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/146886487/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <IconLinkedin />
             </a>
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/vysara.ca/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <IconInstagram />
             </a>
           </div>
