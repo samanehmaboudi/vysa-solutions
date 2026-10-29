@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vysara.ca/sitemap.xml
+Sitemap: https://www.vysara.ca/sitemap.xml
