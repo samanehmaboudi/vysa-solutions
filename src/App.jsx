@@ -678,102 +678,101 @@ function App() {
         </section>
 
         {/* ================= CONTACT ================= */}
-        <section id="contact" className="contact-section">
-          <span className="contact-decorative">
-            De belles entreprises locales,
-            <br />
-            des histoires inspirantes.
-          </span>
-
-          <div className="container contact-wrapper">
-            <div className="contact-content">
-              <p className="section-eyebrow light-eyebrow">
-                PARLONS DE VOTRE PROJET
-              </p>
-
-              <h2>Prêt à faire grandir votre entreprise ?</h2>
-
+        <section id="contact" className="ct-section">
+          <div className="container ct-inner">
+            <div className="ct-intro">
+              <h2>Parlons de votre entreprise.</h2>
               <p>
-                Discutons de vos besoins et voyons comment nous pouvons vous
-                aider à atteindre vos objectifs en ligne.
+                Dites-nous en deux minutes ce dont vous avez besoin. Vous
+                recevez une réponse personnalisée, sans engagement.
               </p>
 
-              <a className="contact-email" href="mailto:contact@vysara.ca">
-                contact@vysara.ca
-              </a>
+              <dl className="ct-direct">
+                <div>
+                  <dt>Courriel</dt>
+                  <dd>
+                    <a href="mailto:contact@vysara.ca">contact@vysara.ca</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Région</dt>
+                  <dd>Repentigny, Lanaudière, Laval et Grand Montréal</dd>
+                </div>
+              </dl>
             </div>
 
-            <form className="contact-form" onSubmit={handleContactSubmit}>
-              <div className="form-row">
-                <div>
-                  <label htmlFor="name">Nom complet *</label>
-
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Votre nom"
-                    maxLength="100"
-                    required
-                  />
+            <form className="ct-form" onSubmit={handleContactSubmit}>
+              <fieldset className="ct-group">
+                <legend>Votre entreprise</legend>
+                <div className="ct-chips">
+                  {["Salon ou beauté", "Santé et bien-être", "Restaurant", "Commerce", "Autre"].map((t) => (
+                    <label key={t} className="ct-chip">
+                      <input type="radio" name="type_entreprise" value={t} />
+                      <span>{t}</span>
+                    </label>
+                  ))}
                 </div>
+              </fieldset>
 
-                <div>
-                  <label htmlFor="email">Courriel *</label>
+              <fieldset className="ct-group">
+                <legend>Ce qui vous intéresse</legend>
+                <div className="ct-chips">
+                  {["Un nouveau site", "Refaire mon site", "Réservation en ligne", "Assistant IA", "Je ne sais pas encore"].map((t) => (
+                    <label key={t} className="ct-chip">
+                      <input type="checkbox" name="besoins" value={t} />
+                      <span>{t}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
 
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="votre@courriel.com"
-                    maxLength="150"
-                    required
-                  />
+              <div className="ct-row">
+                <div className="ct-field">
+                  <label htmlFor="name">Nom</label>
+                  <input id="name" name="name" type="text" autoComplete="name" maxLength="100" required />
+                </div>
+                <div className="ct-field">
+                  <label htmlFor="email">Courriel</label>
+                  <input id="email" name="email" type="email" autoComplete="email" maxLength="150" required />
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="business">Entreprise</label>
-
-                <input
-                  id="business"
-                  name="business"
-                  type="text"
-                  placeholder="Nom de votre entreprise"
-                  maxLength="150"
-                />
+              <div className="ct-row">
+                <div className="ct-field">
+                  <label htmlFor="business">
+                    Nom de l’entreprise <span>(facultatif)</span>
+                  </label>
+                  <input id="business" name="business" type="text" autoComplete="organization" maxLength="150" />
+                </div>
+                <div className="ct-field">
+                  <label htmlFor="phone">
+                    Téléphone <span>(facultatif)</span>
+                  </label>
+                  <input id="phone" name="phone" type="tel" autoComplete="tel" maxLength="30" />
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="message">Votre message *</label>
-
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Parlez-nous brièvement de votre projet..."
-                  maxLength="2000"
-                  required
-                ></textarea>
+              <div className="ct-field">
+                <label htmlFor="message">
+                  Un mot sur votre projet <span>(facultatif)</span>
+                </label>
+                <textarea id="message" name="message" rows="4" maxLength="2000"></textarea>
               </div>
 
-              <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande →"}
+              <button type="submit" className="ct-submit" disabled={isSubmitting}>
+                {isSubmitting ? "Envoi en cours…" : "Envoyer ma demande"}
               </button>
 
-              {formStatus === "success" && (
-                <p className="form-success">
-                  ✓ Merci ! Votre demande a bien été envoyée. Nous vous
-                  répondrons dans les plus brefs délais.
-                </p>
-              )}
-
-              {formStatus === "error" && (
-                <p className="form-error">
-                  Une erreur est survenue. Veuillez réessayer dans quelques
-                  instants.
-                </p>
-              )}
+              <p
+                className={`ct-status${formStatus === "error" ? " is-error" : ""}`}
+                role="status"
+                aria-live="polite"
+              >
+                {formStatus === "success" &&
+                  "Demande envoyée. Merci ! Nous vous répondons personnellement par courriel."}
+                {formStatus === "error" &&
+                  "La demande n’a pas pu être envoyée. Vérifiez votre connexion, puis réessayez, ou écrivez à contact@vysara.ca."}
+              </p>
             </form>
           </div>
         </section>
