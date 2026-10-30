@@ -3515,3 +3515,41 @@ h3,
     justify-self: stretch;
   }
 }
+
+/* =========================================================
+   SÉLECTEUR DE LANGUE FR / EN
+========================================================= */
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-right: 12px;
+  padding: 3px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+}
+
+.lang-switch a {
+  padding: 5px 10px;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.lang-switch a:hover {
+  color: var(--text);
+}
+
+.lang-switch a[aria-current="page"] {
+  color: #ffffff;
+  background: var(--text);
+}
+
+.lang-switch a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}

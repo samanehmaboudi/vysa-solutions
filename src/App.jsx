@@ -6,6 +6,15 @@ import sereniteImage from "./assets/serenite-project.jpg";
 import belleRoseVideo from "./assets/belle-rose-mobile.mp4";
 import belleRosePoster from "./assets/belle-rose-mobile-poster.jpg";
 
+/* ================= LANGUE (FR par défaut, EN sur /en) ================= */
+
+const LANG =
+  typeof window !== "undefined" && window.location.pathname.startsWith("/en")
+    ? "en"
+    : "fr";
+
+const T = (fr, en) => (LANG === "en" ? en : fr);
+
 /* ================= LOGO VYSARA (ترنج — médaillon de tapis persan) ================= */
 
 const LogoMark = ({ className = "", onDark = false }) => (
@@ -91,13 +100,13 @@ const HeroMedallion = () => {
           loop
           playsInline
           preload="metadata"
-          aria-label="Aperçu sur mobile du site Belle Rose, un salon de coiffure"
+          aria-label={T("Aperçu sur mobile du site Belle Rose, un salon de coiffure", "Mobile preview of the Belle Rose hair salon website")}
         />
       </div>
       </div>
 
       <figcaption className="hx-caption">
-        Belle Rose, site pour un salon de coiffure (projet concept)
+        {T("Belle Rose, site pour un salon de coiffure (projet concept)", "Belle Rose, website for a hair salon (concept project)")}
       </figcaption>
     </figure>
   );
@@ -107,48 +116,48 @@ const HeroMedallion = () => {
 
 const SERVICES = [
   {
-    title: "Sites web sur mesure",
-    text: "Un site vitrine clair, rapide et pensé pour le mobile, qui présente vos services et donne envie de vous contacter.",
+    title: T("Sites web sur mesure", "Custom websites"),
+    text: T("Un site vitrine clair, rapide et pensé pour le mobile, qui présente vos services et donne envie de vous contacter.", "A clear, fast, mobile-first website that presents your services and makes people want to contact you."),
     items: [
-      "Design adapté à votre image",
-      "Pages services, à propos et contact",
-      "Bases du référencement local sur Google",
+      T("Design adapté à votre image", "Design that fits your brand"),
+      T("Pages services, à propos et contact", "Services, about and contact pages"),
+      T("Bases du référencement local sur Google", "Local SEO basics on Google"),
     ],
   },
   {
-    title: "Réservation et formulaires",
-    text: "Vos clients prennent rendez-vous ou vous écrivent directement depuis votre site, même le soir et la fin de semaine.",
+    title: T("Réservation et formulaires", "Booking and forms"),
+    text: T("Vos clients prennent rendez-vous ou vous écrivent directement depuis votre site, même le soir et la fin de semaine.", "Your clients book or reach you right from your website, even in the evening and on weekends."),
     items: [
-      "Prise de rendez-vous en ligne",
-      "Formulaires de contact et de soumission",
-      "Carte Google Maps et itinéraire",
+      T("Prise de rendez-vous en ligne", "Online booking"),
+      T("Formulaires de contact et de soumission", "Contact and quote request forms"),
+      T("Carte Google Maps et itinéraire", "Google Maps and directions"),
     ],
   },
   {
-    title: "WordPress et applications web",
-    text: "Un site que vous modifiez vous-même avec WordPress, ou une application sur mesure en React et Laravel quand vos besoins vont plus loin.",
+    title: T("WordPress et applications web", "WordPress and web applications"),
+    text: T("Un site que vous modifiez vous-même avec WordPress, ou une application sur mesure en React et Laravel quand vos besoins vont plus loin.", "A website you can update yourself with WordPress, or a custom React and Laravel application when your needs go further."),
     items: [
-      "Formation pour modifier vos textes et photos",
-      "Espace client ou outils internes",
-      "Connexion avec les outils que vous utilisez déjà",
+      T("Formation pour modifier vos textes et photos", "Training to update your text and photos"),
+      T("Espace client ou outils internes", "Client portal or internal tools"),
+      T("Connexion avec les outils que vous utilisez déjà", "Connections with the tools you already use"),
     ],
   },
   {
-    title: "Entretien et soutien",
-    text: "Mises à jour, sauvegardes et petites modifications, pour que votre site reste fiable sans que vous ayez à y penser.",
+    title: T("Entretien et soutien", "Maintenance and support"),
+    text: T("Mises à jour, sauvegardes et petites modifications, pour que votre site reste fiable sans que vous ayez à y penser.", "Updates, backups and small changes, so your website stays reliable without you having to think about it."),
     items: [
-      "Mises à jour et sauvegardes",
-      "Petites modifications de contenu",
-      "Une personne qui vous répond, en français",
+      T("Mises à jour et sauvegardes", "Updates and backups"),
+      T("Petites modifications de contenu", "Small content changes"),
+      T("Une personne qui vous répond, en français", "A real person who answers you, in English or French"),
     ],
   },
   {
-    title: "Assistant IA et visibilité IA",
-    text: "Un assistant qui répond à vos clients jour et nuit, et un site préparé pour être bien compris par ChatGPT, Google et les autres outils d’IA.",
+    title: T("Assistant IA et visibilité IA", "AI assistant and AI visibility"),
+    text: T("Un assistant qui répond à vos clients jour et nuit, et un site préparé pour être bien compris par ChatGPT, Google et les autres outils d’IA.", "An assistant that answers your clients day and night, and a website built to be clearly understood by ChatGPT, Google and other AI tools."),
     items: [
-      "Assistant de questions fréquentes sur votre site",
-      "Données structurées et FAQ pour les recherches IA",
-      "Textes et traductions préparés avec l’IA",
+      T("Assistant de questions fréquentes sur votre site", "FAQ assistant on your website"),
+      T("Données structurées et FAQ pour les recherches IA", "Structured data and FAQs for AI search"),
+      T("Textes et traductions préparés avec l’IA", "Copy and translations prepared with AI"),
     ],
   },
 ];
@@ -184,7 +193,7 @@ const ServicesList = () => {
             <div id={panelId} className="sv-panel" role="region" aria-label={s.title}>
               <div className="sv-panel-inner">
                 <p>{s.text}</p>
-                <ul className="sv-included" aria-label="Inclus">
+                <ul className="sv-included" aria-label={T("Inclus", "Included")}>
                   {s.items.map((it) => (
                     <li key={it}>{it}</li>
                   ))}
@@ -203,22 +212,22 @@ const ServicesList = () => {
 const PROJECTS = [
   {
     name: "Belle Rose",
-    kind: "Salon de coiffure à Repentigny (projet concept)",
+    kind: T("Salon de coiffure à Repentigny (projet concept)", "Hair salon in Repentigny (concept project)"),
     url: "https://belle-rose-salon.vercel.app",
     image: belleRoseImage,
-    alt: "Page d’accueil du site Belle Rose, un salon de coiffure",
-    need: "Un salon qui reçoit surtout ses rendez-vous par téléphone et veut montrer ses prix et son ambiance avant la première visite.",
-    solution: "Un site doux et élégant avec les services et les prix, une galerie de styles et un bouton de rendez-vous toujours visible sur mobile.",
-    tech: "React, design responsive",
+    alt: T("Page d’accueil du site Belle Rose, un salon de coiffure", "Home page of the Belle Rose hair salon website"),
+    need: T("Un salon qui reçoit surtout ses rendez-vous par téléphone et veut montrer ses prix et son ambiance avant la première visite.", "A salon that gets most of its bookings by phone and wants to show its prices and atmosphere before the first visit."),
+    solution: T("Un site doux et élégant avec les services et les prix, une galerie de styles et un bouton de rendez-vous toujours visible sur mobile.", "A soft, elegant website with services and prices, a style gallery and a booking button that stays visible on mobile."),
+    tech: T("React, design responsive", "React, responsive design"),
   },
   {
     name: "Sérénité",
-    kind: "Massothérapeute à Repentigny (projet concept)",
+    kind: T("Massothérapeute à Repentigny (projet concept)", "Massage therapist in Repentigny (concept project)"),
     url: "https://serenite-massage.vercel.app",
     image: sereniteImage,
-    alt: "Page d’accueil du site Sérénité, massothérapie et bien-être",
-    need: "Une massothérapeute qui veut rassurer ses nouveaux clients et les aider à choisir le bon soin.",
-    solution: "Une ambiance calme, une présentation claire de chaque soin, un accès rapide à la prise de rendez-vous et une carte Google Maps.",
+    alt: T("Page d’accueil du site Sérénité, massothérapie et bien-être", "Home page of the Sérénité massage and wellness website"),
+    need: T("Une massothérapeute qui veut rassurer ses nouveaux clients et les aider à choisir le bon soin.", "A massage therapist who wants to reassure new clients and help them choose the right treatment."),
+    solution: T("Une ambiance calme, une présentation claire de chaque soin, un accès rapide à la prise de rendez-vous et une carte Google Maps.", "A calm atmosphere, a clear presentation of each treatment, quick access to booking and a Google Map."),
     tech: "React, Google Maps",
     browserBar: true,
   },
@@ -228,24 +237,24 @@ const PROJECTS = [
 
 const AI_QA = [
   {
-    q: "Êtes-vous ouverts le samedi ?",
-    a: "Oui ! Le salon est ouvert le samedi de 9 h à 16 h. Voulez-vous que je vous montre les plages libres ?",
+    q: T("Êtes-vous ouverts le samedi ?", "Are you open on Saturdays?"),
+    a: T("Oui ! Le salon est ouvert le samedi de 9 h à 16 h. Voulez-vous que je vous montre les plages libres ?", "Yes! The salon is open on Saturdays from 9 a.m. to 4 p.m. Would you like me to show you the available times?"),
   },
   {
-    q: "Combien coûte une coloration ?",
-    a: "Une coloration commence à 80 $, selon la longueur des cheveux. Le prix exact est confirmé avec votre coiffeuse avant de commencer.",
+    q: T("Combien coûte une coloration ?", "How much is a colour?"),
+    a: T("Une coloration commence à 80 $, selon la longueur des cheveux. Le prix exact est confirmé avec votre coiffeuse avant de commencer.", "Colour starts at $80, depending on hair length. The exact price is confirmed with your stylist before starting."),
   },
   {
-    q: "Comment prendre rendez-vous ?",
-    a: "C’est simple : touchez « Prendre rendez-vous », choisissez le service, puis l’heure qui vous convient. Vous recevez une confirmation par courriel.",
+    q: T("Comment prendre rendez-vous ?", "How do I book an appointment?"),
+    a: T("C’est simple : touchez « Prendre rendez-vous », choisissez le service, puis l’heure qui vous convient. Vous recevez une confirmation par courriel.", "It’s easy: tap “Book an appointment”, choose the service, then the time that suits you. You’ll get a confirmation by email."),
   },
 ];
 
 const AiDemo = () => {
   const [messages, setMessages] = useState([
-    { from: "bot", text: "Bonjour ! Je suis l’assistant de Belle Rose. Comment puis-je vous aider ?" },
-    { from: "user", text: "Comment prendre rendez-vous ?" },
-    { from: "bot", text: "C’est simple : touchez « Prendre rendez-vous », choisissez le service, puis l’heure qui vous convient. Vous recevez une confirmation par courriel." },
+    { from: "bot", text: T("Bonjour ! Je suis l’assistant de Belle Rose. Comment puis-je vous aider ?", "Hi! I’m the Belle Rose assistant. How can I help you?") },
+    { from: "user", text: AI_QA[2].q },
+    { from: "bot", text: AI_QA[2].a },
   ]);
   const [typing, setTyping] = useState(false);
 
@@ -270,7 +279,7 @@ const AiDemo = () => {
         <LogoMark className="ai-demo-logo" onDark />
         <div>
           <strong>Assistant Belle Rose</strong>
-          <span>Démonstration</span>
+          <span>{T("Démonstration", "Demo")}</span>
         </div>
       </div>
 
@@ -281,7 +290,7 @@ const AiDemo = () => {
           </p>
         ))}
         {typing && (
-          <p className="ai-msg ai-msg--bot ai-typing" aria-label="L’assistant écrit">
+          <p className="ai-msg ai-msg--bot ai-typing" aria-label={T("L’assistant écrit", "The assistant is typing")}>
             <i />
             <i />
             <i />
@@ -290,7 +299,7 @@ const AiDemo = () => {
       </div>
 
       <div className="ai-demo-ask">
-        <span>Essayez une question :</span>
+        <span>{T("Essayez une question :", "Try a question:")}</span>
         <div className="ai-chips">
           {AI_QA.map((item) => (
             <button key={item.q} type="button" onClick={() => ask(item)} disabled={typing}>
@@ -335,6 +344,27 @@ function App() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  useEffect(() => {
+    document.documentElement.lang = LANG === "en" ? "en-CA" : "fr-CA";
+    document.title = T("Vysara – Sites web & applications", "Vysara – Websites & applications");
+    const desc = T(
+      "Vysara crée des sites web modernes et des applications pour les petites entreprises de Repentigny, Montréal, Laval et Lanaudière.",
+      "Vysara builds modern websites and web applications for small businesses in Repentigny, Montréal, Laval and Lanaudière."
+    );
+    const url = LANG === "en" ? "https://www.vysara.ca/en" : "https://www.vysara.ca/";
+    const set = (sel, attr, val) => {
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute(attr, val);
+    };
+    set('meta[name="description"]', "content", desc);
+    set('meta[property="og:description"]', "content", desc);
+    set('meta[property="og:title"]', "content", document.title);
+    set('meta[property="og:url"]', "content", url);
+    set('meta[property="og:locale"]', "content", LANG === "en" ? "en_CA" : "fr_CA");
+    set('link[rel="canonical"]', "href", url);
+  }, []);
+
+
   const [formStatus, setFormStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -378,28 +408,33 @@ function App() {
             <LogoMark className="brand-mark" />
             <span className="brand-text">
               <span className="brand-main">VYSARA</span>
-              <span className="brand-sub">Sites web &amp; applications</span>
+              <span className="brand-sub">{T("Sites web &amp; applications", "Websites &amp; applications")}</span>
             </span>
           </a>
 
           <nav className="main-nav desktop-nav">
-            <a href="#home">Accueil</a>
+            <a href="#home">{T("Accueil", "Home")}</a>
             <a href="#services">Services</a>
-            <a href="#ia">IA</a>
-            <a href="#work">Réalisations</a>
-            <a href="#about">À propos</a>
+            <a href="#ia">{T("IA", "AI")}</a>
+            <a href="#work">{T("Réalisations", "Work")}</a>
+            <a href="#about">{T("À propos", "About")}</a>
             <a href="#contact">Contact</a>
           </nav>
 
           <div className="header-actions">
+            <div className="lang-switch" aria-label={T("Langue", "Language")}>
+              <a href="/" lang="fr" aria-current={LANG === "fr" ? "page" : undefined}>FR</a>
+              <a href="/en" lang="en" aria-current={LANG === "en" ? "page" : undefined}>EN</a>
+            </div>
+
             <a href="#contact" className="header-btn desktop-cta">
-              Parlons-en →
+              {T("Parlons-en →", "Let’s talk →")}
             </a>
 
             <button
               className={`menu-toggle ${menuOpen ? "is-open" : ""}`}
               type="button"
-              aria-label="Ouvrir le menu"
+              aria-label={T("Ouvrir le menu", "Open menu")}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen(!menuOpen)}
             >
@@ -413,19 +448,19 @@ function App() {
         <div className={`mobile-menu ${menuOpen ? "is-open" : ""}`}>
           <nav className="mobile-nav">
             <a href="#home" onClick={closeMenu}>
-              Accueil
+              {T("Accueil", "Home")}
             </a>
             <a href="#services" onClick={closeMenu}>
               Services
             </a>
             <a href="#ia" onClick={closeMenu}>
-              IA
+              {T("IA", "AI")}
             </a>
             <a href="#work" onClick={closeMenu}>
-              Réalisations
+              {T("Réalisations", "Work")}
             </a>
             <a href="#about" onClick={closeMenu}>
-              À propos
+              {T("À propos", "About")}
             </a>
             <a href="#contact" onClick={closeMenu}>
               Contact
@@ -437,7 +472,7 @@ function App() {
             className="header-btn mobile-cta"
             onClick={closeMenu}
           >
-            Parlons-en →
+            {T("Parlons-en →", "Let’s talk →")}
           </a>
         </div>
       </header>
@@ -448,30 +483,26 @@ function App() {
           <div className="container hx-inner">
             <div className="hx-content">
               <h1 className="hx-title">
-                <span className="hx-line">Des sites web</span>
-                <span className="hx-line">qui font venir</span>
-                <span className="hx-line">vos clients.</span>
+                <span className="hx-line">{T("Des sites web", "Websites that")}</span>
+                <span className="hx-line">{T("qui font venir", "bring clients")}</span>
+                <span className="hx-line">{T("vos clients.", "to your door.")}</span>
               </h1>
 
               <p className="hx-text">
-                Vysara conçoit des sites rapides et soignés pour les salons,
-                cliniques et commerces de Repentigny, de Lanaudière et du
-                Grand Montréal : réservation en ligne, formulaires, Google Maps
-                et suivi après la mise en ligne.
+                {T("Vysara conçoit des sites rapides et soignés pour les salons, cliniques et commerces de Repentigny, de Lanaudière et du Grand Montréal : réservation en ligne, formulaires, Google Maps et suivi après la mise en ligne.", "Vysara builds fast, carefully crafted websites for salons, clinics and shops in Repentigny, Lanaudière and Greater Montréal: online booking, forms, Google Maps and support after launch.")}
               </p>
 
               <div className="hx-buttons">
                 <a href="#contact" className="hx-btn hx-btn-primary">
-                  Démarrer mon projet
+                  {T("Démarrer mon projet", "Start my project")}
                 </a>
                 <a href="#work" className="hx-btn hx-btn-ghost">
-                  Voir nos réalisations
+                  {T("Voir nos réalisations", "See our work")}
                 </a>
               </div>
 
               <p className="hx-note">
-                Basée à Repentigny. Accompagnement en français, du premier
-                appel à la mise en ligne.
+                {T("Basée à Repentigny. Accompagnement en français, du premier appel à la mise en ligne.", "Based in Repentigny. Support in English and French, from the first call to launch.")}
               </p>
             </div>
 
@@ -483,16 +514,15 @@ function App() {
         <section id="services" className="sv-section">
           <div className="container sv-inner">
             <div className="sv-intro">
-              <h2>Un site, et tout ce qui le fait travailler pour vous.</h2>
+              <h2>{T("Un site, et tout ce qui le fait travailler pour vous.", "A website, and everything that makes it work for you.")}</h2>
               <p>
-                On commence par ce dont votre entreprise a vraiment besoin.
-                Le reste s’ajoute quand vous êtes prêt.
+                {T("On commence par ce dont votre entreprise a vraiment besoin. Le reste s’ajoute quand vous êtes prêt.", "We start with what your business really needs. The rest can come when you’re ready.")}
               </p>
               <a href="#contact" className="sv-link">
-                Parlons de votre projet
+                {T("Parlons de votre projet", "Tell us about your project")}
               </a>
               <p className="sv-mail">
-                Ou écrivez-nous :{" "}
+                {T("Ou écrivez-nous :", "Or email us:")}{" "}
                 <a href="mailto:contact@vysara.ca">contact@vysara.ca</a>
               </p>
             </div>
@@ -505,25 +535,23 @@ function App() {
         <section id="ia" className="ai-section">
           <div className="container ai-inner">
             <div className="ai-content">
-              <h2>Vos clients posent leurs questions à l’IA. Votre site doit avoir la réponse.</h2>
+              <h2>{T("Vos clients posent leurs questions à l’IA. Votre site doit avoir la réponse.", "Your clients ask AI their questions. Your website should have the answer.")}</h2>
               <p className="ai-lead">
-                De plus en plus de gens demandent à ChatGPT ou à Google où
-                réserver, quoi choisir et qui appeler. Chaque site Vysara est
-                préparé pour cette nouvelle façon de chercher.
+                {T("De plus en plus de gens demandent à ChatGPT ou à Google où réserver, quoi choisir et qui appeler. Chaque site Vysara est préparé pour cette nouvelle façon de chercher.", "More and more people ask ChatGPT or Google where to book, what to choose and who to call. Every Vysara website is built for this new way of searching.")}
               </p>
 
               <div className="ai-points">
                 <div>
-                  <h3>Compris par les assistants IA</h3>
-                  <p>Données structurées, questions fréquentes et fiche Google cohérente, pour que l’IA sache qui vous êtes, où vous êtes et ce que vous offrez.</p>
+                  <h3>{T("Compris par les assistants IA", "Understood by AI assistants")}</h3>
+                  <p>{T("Données structurées, questions fréquentes et fiche Google cohérente, pour que l’IA sache qui vous êtes, où vous êtes et ce que vous offrez.", "Structured data, FAQs and a consistent Google profile, so AI knows who you are, where you are and what you offer.")}</p>
                 </div>
                 <div>
-                  <h3>Un assistant qui répond à toute heure</h3>
-                  <p>Sur votre site, il répond aux questions fréquentes et guide vers la réservation, même à 23 h un dimanche.</p>
+                  <h3>{T("Un assistant qui répond à toute heure", "An assistant that answers any time")}</h3>
+                  <p>{T("Sur votre site, il répond aux questions fréquentes et guide vers la réservation, même à 23 h un dimanche.", "On your website, it answers common questions and guides people to booking, even at 11 p.m. on a Sunday.")}</p>
                 </div>
                 <div>
-                  <h3>Du contenu prêt plus vite</h3>
-                  <p>Textes, traductions français-anglais et publications Google préparés avec l’IA, puis relus avec soin.</p>
+                  <h3>{T("Du contenu prêt plus vite", "Content ready faster")}</h3>
+                  <p>{T("Textes, traductions français-anglais et publications Google préparés avec l’IA, puis relus avec soin.", "Copy, French-English translations and Google posts prepared with AI, then carefully reviewed.")}</p>
                 </div>
               </div>
             </div>
@@ -536,11 +564,9 @@ function App() {
         <section id="work" className="wk-section">
           <div className="container">
             <div className="wk-head">
-              <h2>Des sites pensés pour des commerces d’ici.</h2>
+              <h2>{T("Des sites pensés pour des commerces d’ici.", "Websites designed for local businesses.")}</h2>
               <p>
-                Deux projets concepts qui montrent ce que nous pouvons faire
-                pour un salon, une clinique ou un commerce de quartier. Le
-                prochain pourrait être le vôtre.
+                {T("Deux projets concepts qui montrent ce que nous pouvons faire pour un salon, une clinique ou un commerce de quartier. Le prochain pourrait être le vôtre.", "Two concept projects that show what we can do for a salon, a clinic or a neighbourhood shop. The next one could be yours.")}
               </p>
             </div>
 
@@ -555,7 +581,7 @@ function App() {
                     className="wk-shot"
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Visiter le site ${p.name} (nouvel onglet)`}
+                    aria-label={T(`Visiter le site ${p.name} (nouvel onglet)`, `Visit the ${p.name} website (opens in a new tab)`)}
                   >
                     {p.browserBar && (
                       <span className="wk-bar" aria-hidden="true">
@@ -573,15 +599,15 @@ function App() {
 
                     <dl className="wk-facts">
                       <div>
-                        <dt>Le besoin</dt>
+                        <dt>{T("Le besoin", "The need")}</dt>
                         <dd>{p.need}</dd>
                       </div>
                       <div>
-                        <dt>Notre réponse</dt>
+                        <dt>{T("Notre réponse", "Our solution")}</dt>
                         <dd>{p.solution}</dd>
                       </div>
                       <div>
-                        <dt>Réalisé avec</dt>
+                        <dt>{T("Réalisé avec", "Built with")}</dt>
                         <dd>{p.tech}</dd>
                       </div>
                     </dl>
@@ -592,7 +618,7 @@ function App() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Visiter le site
+                      {T("Visiter le site", "Visit the site")}
                     </a>
                   </div>
                 </article>
@@ -616,62 +642,54 @@ function App() {
                   <circle cx="200" cy="382" r="6" fill="#7FA89C" />
                 </svg>
                 <figcaption className="ab-logo-story">
-                  <h3>Pourquoi un toranj ?</h3>
+                  <h3>{T("Pourquoi un toranj ?", "Why a toranj?")}</h3>
                   <p>
-                    Le logo de Vysara s’inspire du toranj, le grand médaillon
-                    au centre des tapis persans. Dans un tapis, tout part de
-                    lui : les motifs s’organisent autour de ce cœur avec
-                    équilibre et précision.
+                    {T("Le logo de Vysara s’inspire du toranj, le grand médaillon au centre des tapis persans. Dans un tapis, tout part de lui : les motifs s’organisent autour de ce cœur avec équilibre et précision.", "The Vysara logo is inspired by the toranj, the large medallion at the centre of Persian rugs. In a rug, everything starts from it: the patterns are arranged around this heart with balance and precision.")}
                   </p>
                   <p>
-                    C’est notre façon de travailler : votre entreprise au
-                    centre, et chaque détail de votre site pensé autour d’elle.
+                    {T("C’est notre façon de travailler : votre entreprise au centre, et chaque détail de votre site pensé autour d’elle.", "That’s how we work: your business at the centre, and every detail of your website designed around it.")}
                   </p>
                 </figcaption>
               </figure>
 
               <div className="ab-content">
-                <h2>Un site fait avec soin, par la personne qui vous répond.</h2>
+                <h2>{T("Un site fait avec soin, par la personne qui vous répond.", "A website made with care, by the person who answers you.")}</h2>
 
                 <p className="ab-lead">
-                  Vysara est une agence web à taille humaine, basée à
-                  Repentigny. Du premier appel à la mise en ligne, vous parlez
-                  à la même personne : celle qui dessine, code et entretient
-                  votre site.
+                  {T("Vysara est une agence web à taille humaine, basée à Repentigny. Du premier appel à la mise en ligne, vous parlez à la même personne : celle qui dessine, code et entretient votre site.", "Vysara is a small, people-first web agency based in Repentigny. From the first call to launch, you talk to the same person: the one who designs, codes and maintains your website.")}
                 </p>
 
                 <ul className="ab-promises">
-                  <li>Un site pensé d’abord pour le téléphone, là où vos clients vous cherchent.</li>
-                  <li>Votre site et votre nom de domaine vous appartiennent.</li>
-                  <li>Des réponses en français, sans jargon technique.</li>
+                  <li>{T("Un site pensé d’abord pour le téléphone, là où vos clients vous cherchent.", "A website designed for phones first, where your clients are looking for you.")}</li>
+                  <li>{T("Votre site et votre nom de domaine vous appartiennent.", "Your website and domain name belong to you.")}</li>
+                  <li>{T("Des réponses en français, sans jargon technique.", "Clear answers in English or French, without technical jargon.")}</li>
                 </ul>
 
                 <blockquote className="ab-quote">
                   <p>
-                    Un bon site ne se remarque pas pour sa technique. On le
-                    remarque parce que le téléphone sonne davantage.
+                    {T("Un bon site ne se remarque pas pour sa technique. On le remarque parce que le téléphone sonne davantage.", "A good website isn’t noticed for its technology. It’s noticed because the phone rings more often.")}
                   </p>
-                  <cite>Samaneh Mahboudi, fondatrice de Vysara</cite>
+                  <cite>{T("Samaneh Mahboudi, fondatrice de Vysara", "Samaneh Mahboudi, founder of Vysara")}</cite>
                 </blockquote>
               </div>
             </div>
 
-            <ol className="ab-steps" aria-label="Comment se déroule un projet">
+            <ol className="ab-steps" aria-label={T("Comment se déroule un projet", "How a project works")}>
               <li>
-                <h3>On se parle</h3>
-                <p>Un appel de 20 minutes pour comprendre votre entreprise, vos clients et ce que vous attendez du site.</p>
+                <h3>{T("On se parle", "We talk")}</h3>
+                <p>{T("Un appel de 20 minutes pour comprendre votre entreprise, vos clients et ce que vous attendez du site.", "A 20-minute call to understand your business, your clients and what you expect from your website.")}</p>
               </li>
               <li>
-                <h3>Vous voyez avant qu’on construise</h3>
-                <p>Une maquette de votre page d’accueil, à valider avant d’écrire la moindre ligne de code.</p>
+                <h3>{T("Vous voyez avant qu’on construise", "You see it before we build it")}</h3>
+                <p>{T("Une maquette de votre page d’accueil, à valider avant d’écrire la moindre ligne de code.", "A mockup of your home page to approve before a single line of code is written.")}</p>
               </li>
               <li>
-                <h3>On construit et on teste</h3>
-                <p>Votre site est développé puis vérifié sur téléphone, tablette et ordinateur.</p>
+                <h3>{T("On construit et on teste", "We build and test")}</h3>
+                <p>{T("Votre site est développé puis vérifié sur téléphone, tablette et ordinateur.", "Your website is developed, then checked on phone, tablet and computer.")}</p>
               </li>
               <li>
-                <h3>On reste là après</h3>
-                <p>Mise en ligne, fiche Google, petites modifications : vous n’êtes pas seul une fois le site publié.</p>
+                <h3>{T("On reste là après", "We stay with you")}</h3>
+                <p>{T("Mise en ligne, fiche Google, petites modifications : vous n’êtes pas seul une fois le site publié.", "Launch, Google profile, small changes: you’re not on your own once your website is live.")}</p>
               </li>
             </ol>
           </div>
@@ -681,31 +699,31 @@ function App() {
         <section id="contact" className="ct-section">
           <div className="container ct-inner">
             <div className="ct-intro">
-              <h2>Parlons de votre entreprise.</h2>
+              <h2>{T("Parlons de votre entreprise.", "Let’s talk about your business.")}</h2>
               <p>
-                Dites-nous en deux minutes ce dont vous avez besoin. Vous
-                recevez une réponse personnalisée, sans engagement.
+                {T("Dites-nous en deux minutes ce dont vous avez besoin. Vous recevez une réponse personnalisée, sans engagement.", "Tell us in two minutes what you need. You’ll get a personal reply, with no commitment.")}
               </p>
 
               <dl className="ct-direct">
                 <div>
-                  <dt>Courriel</dt>
+                  <dt>{T("Courriel", "Email")}</dt>
                   <dd>
                     <a href="mailto:contact@vysara.ca">contact@vysara.ca</a>
                   </dd>
                 </div>
                 <div>
-                  <dt>Région</dt>
-                  <dd>Repentigny, Lanaudière, Laval et Grand Montréal</dd>
+                  <dt>{T("Région", "Area")}</dt>
+                  <dd>{T("Repentigny, Lanaudière, Laval et Grand Montréal", "Repentigny, Lanaudière, Laval and Greater Montréal")}</dd>
                 </div>
               </dl>
             </div>
 
             <form className="ct-form" onSubmit={handleContactSubmit}>
+              <input type="hidden" name="langue" value={LANG} />
               <fieldset className="ct-group">
-                <legend>Votre entreprise</legend>
+                <legend>{T("Votre entreprise", "Your business")}</legend>
                 <div className="ct-chips">
-                  {["Salon ou beauté", "Santé et bien-être", "Restaurant", "Commerce", "Autre"].map((t) => (
+                  {T(["Salon ou beauté", "Santé et bien-être", "Restaurant", "Commerce", "Autre"], ["Salon or beauty", "Health and wellness", "Restaurant", "Retail", "Other"]).map((t) => (
                     <label key={t} className="ct-chip">
                       <input type="radio" name="type_entreprise" value={t} />
                       <span>{t}</span>
@@ -715,9 +733,9 @@ function App() {
               </fieldset>
 
               <fieldset className="ct-group">
-                <legend>Ce qui vous intéresse</legend>
+                <legend>{T("Ce qui vous intéresse", "What you’re interested in")}</legend>
                 <div className="ct-chips">
-                  {["Un nouveau site", "Refaire mon site", "Réservation en ligne", "Assistant IA", "Je ne sais pas encore"].map((t) => (
+                  {T(["Un nouveau site", "Refaire mon site", "Réservation en ligne", "Assistant IA", "Je ne sais pas encore"], ["A new website", "Redo my website", "Online booking", "AI assistant", "Not sure yet"]).map((t) => (
                     <label key={t} className="ct-chip">
                       <input type="checkbox" name="besoins" value={t} />
                       <span>{t}</span>
@@ -728,11 +746,11 @@ function App() {
 
               <div className="ct-row">
                 <div className="ct-field">
-                  <label htmlFor="name">Nom</label>
+                  <label htmlFor="name">{T("Nom", "Name")}</label>
                   <input id="name" name="name" type="text" autoComplete="name" maxLength="100" required />
                 </div>
                 <div className="ct-field">
-                  <label htmlFor="email">Courriel</label>
+                  <label htmlFor="email">{T("Courriel", "Email")}</label>
                   <input id="email" name="email" type="email" autoComplete="email" maxLength="150" required />
                 </div>
               </div>
@@ -740,13 +758,13 @@ function App() {
               <div className="ct-row">
                 <div className="ct-field">
                   <label htmlFor="business">
-                    Nom de l’entreprise <span>(facultatif)</span>
+                    {T("Nom de l’entreprise", "Business name")} <span>{T("(facultatif)", "(optional)")}</span>
                   </label>
                   <input id="business" name="business" type="text" autoComplete="organization" maxLength="150" />
                 </div>
                 <div className="ct-field">
                   <label htmlFor="phone">
-                    Téléphone <span>(facultatif)</span>
+                    {T("Téléphone", "Phone")} <span>{T("(facultatif)", "(optional)")}</span>
                   </label>
                   <input id="phone" name="phone" type="tel" autoComplete="tel" maxLength="30" />
                 </div>
@@ -754,13 +772,13 @@ function App() {
 
               <div className="ct-field">
                 <label htmlFor="message">
-                  Un mot sur votre projet <span>(facultatif)</span>
+                  {T("Un mot sur votre projet", "A few words about your project")} <span>{T("(facultatif)", "(optional)")}</span>
                 </label>
                 <textarea id="message" name="message" rows="4" maxLength="2000"></textarea>
               </div>
 
               <button type="submit" className="ct-submit" disabled={isSubmitting}>
-                {isSubmitting ? "Envoi en cours…" : "Envoyer ma demande"}
+                {isSubmitting ? T("Envoi en cours…", "Sending…") : T("Envoyer ma demande", "Send my request")}
               </button>
 
               <p
@@ -769,9 +787,9 @@ function App() {
                 aria-live="polite"
               >
                 {formStatus === "success" &&
-                  "Demande envoyée. Merci ! Nous vous répondons personnellement par courriel."}
+                  T("Demande envoyée. Merci ! Nous vous répondons personnellement par courriel.", "Request sent. Thank you! We’ll reply to you personally by email.")}
                 {formStatus === "error" &&
-                  "La demande n’a pas pu être envoyée. Vérifiez votre connexion, puis réessayez, ou écrivez à contact@vysara.ca."}
+                  T("La demande n’a pas pu être envoyée. Vérifiez votre connexion, puis réessayez, ou écrivez à contact@vysara.ca.", "Your request couldn’t be sent. Check your connection and try again, or email contact@vysara.ca.")}
               </p>
             </form>
           </div>
@@ -787,12 +805,12 @@ function App() {
               <span>
                 <strong>VYSARA</strong>
                 <span className="footer-brand-sub">
-                  Sites web &amp; applications
+                  {T("Sites web &amp; applications", "Websites &amp; applications")}
                 </span>
               </span>
             </div>
             <p>
-              Des solutions numériques simples pour des entreprises solides.
+              {T("Des solutions numériques simples pour des entreprises solides.", "Simple digital solutions for strong businesses.")}
             </p>
             <a className="footer-email" href="mailto:contact@vysara.ca">
               contact@vysara.ca
@@ -800,18 +818,18 @@ function App() {
           </div>
 
           <div className="footer-links">
-            <a href="#home">Accueil</a>
+            <a href="#home">{T("Accueil", "Home")}</a>
             <a href="#services">Services</a>
-            <a href="#ia">IA</a>
-            <a href="#work">Réalisations</a>
-            <a href="#about">À propos</a>
+            <a href="#ia">{T("IA", "AI")}</a>
+            <a href="#work">{T("Réalisations", "Work")}</a>
+            <a href="#about">{T("À propos", "About")}</a>
             <a href="#contact">Contact</a>
           </div>
         </div>
 
         <div className="container footer-bottom">
           <div className="footer-bottom-left">
-            <p>© 2026 Vysara Solutions numériques. Tous droits réservés.</p>
+            <p>{T("© 2026 Vysara Solutions numériques. Tous droits réservés.", "© 2026 Vysara Digital Solutions. All rights reserved.")}</p>
             <p>NEQ 2282688573</p>
             <p>Québec, Canada</p>
           </div>
@@ -826,7 +844,7 @@ function App() {
           </div>
 
           <p className="footer-badge">
-            Fait au Québec <IconHeart /> Pour les entrepreneurs d’ici
+            {T("Fait au Québec", "Made in Québec")} <IconHeart /> {T("Pour les entrepreneurs d’ici", "For local entrepreneurs")}
           </p>
         </div>
       </footer>
