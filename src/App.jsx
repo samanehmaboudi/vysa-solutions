@@ -142,6 +142,15 @@ const SERVICES = [
       "Une personne qui vous répond, en français",
     ],
   },
+  {
+    title: "Assistant IA et visibilité IA",
+    text: "Un assistant qui répond à vos clients jour et nuit, et un site préparé pour être bien compris par ChatGPT, Google et les autres outils d’IA.",
+    items: [
+      "Assistant de questions fréquentes sur votre site",
+      "Données structurées et FAQ pour les recherches IA",
+      "Textes et traductions préparés avec l’IA",
+    ],
+  },
 ];
 
 const ToranjGlyph = () => (
@@ -214,6 +223,83 @@ const PROJECTS = [
     browserBar: true,
   },
 ];
+
+/* ================= IA — démonstration d'assistant ================= */
+
+const AI_QA = [
+  {
+    q: "Êtes-vous ouverts le samedi ?",
+    a: "Oui ! Le salon est ouvert le samedi de 9 h à 16 h. Voulez-vous que je vous montre les plages libres ?",
+  },
+  {
+    q: "Combien coûte une coloration ?",
+    a: "Une coloration commence à 80 $, selon la longueur des cheveux. Le prix exact est confirmé avec votre coiffeuse avant de commencer.",
+  },
+  {
+    q: "Comment prendre rendez-vous ?",
+    a: "C’est simple : touchez « Prendre rendez-vous », choisissez le service, puis l’heure qui vous convient. Vous recevez une confirmation par courriel.",
+  },
+];
+
+const AiDemo = () => {
+  const [messages, setMessages] = useState([
+    { from: "bot", text: "Bonjour ! Je suis l’assistant de Belle Rose. Comment puis-je vous aider ?" },
+  ]);
+  const [typing, setTyping] = useState(false);
+
+  const ask = (item) => {
+    if (typing) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setMessages((m) => [...m, { from: "user", text: item.q }]);
+    if (reduce) {
+      setMessages((m) => [...m, { from: "bot", text: item.a }]);
+      return;
+    }
+    setTyping(true);
+    setTimeout(() => {
+      setTyping(false);
+      setMessages((m) => [...m, { from: "bot", text: item.a }]);
+    }, 1100);
+  };
+
+  return (
+    <div className="ai-demo">
+      <div className="ai-demo-head">
+        <LogoMark className="ai-demo-logo" onDark />
+        <div>
+          <strong>Assistant Belle Rose</strong>
+          <span>Démonstration</span>
+        </div>
+      </div>
+
+      <div className="ai-demo-body" aria-live="polite">
+        {messages.slice(-5).map((m, i) => (
+          <p key={`${i}-${m.text}`} className={`ai-msg ai-msg--${m.from}`}>
+            {m.text}
+          </p>
+        ))}
+        {typing && (
+          <p className="ai-msg ai-msg--bot ai-typing" aria-label="L’assistant écrit">
+            <i />
+            <i />
+            <i />
+          </p>
+        )}
+      </div>
+
+      <div className="ai-demo-ask">
+        <span>Essayez une question :</span>
+        <div className="ai-chips">
+          {AI_QA.map((item) => (
+            <button key={item.q} type="button" onClick={() => ask(item)} disabled={typing}>
+              {item.q}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 /* ================= ICONES (SVG inline, aucune dépendance) ================= */
 
@@ -369,6 +455,7 @@ function App() {
           <nav className="main-nav desktop-nav">
             <a href="#home">Accueil</a>
             <a href="#services">Services</a>
+            <a href="#ia">IA</a>
             <a href="#work">Réalisations</a>
             <a href="#about">À propos</a>
             <a href="#contact">Contact</a>
@@ -400,6 +487,9 @@ function App() {
             </a>
             <a href="#services" onClick={closeMenu}>
               Services
+            </a>
+            <a href="#ia" onClick={closeMenu}>
+              IA
             </a>
             <a href="#work" onClick={closeMenu}>
               Réalisations
@@ -481,6 +571,37 @@ function App() {
           </div>
         </section>
 
+        {/* ================= IA ================= */}
+        <section id="ia" className="ai-section">
+          <div className="container ai-inner">
+            <div className="ai-content">
+              <h2>Vos clients posent leurs questions à l’IA. Votre site doit avoir la réponse.</h2>
+              <p className="ai-lead">
+                De plus en plus de gens demandent à ChatGPT ou à Google où
+                réserver, quoi choisir et qui appeler. Chaque site Vysara est
+                préparé pour cette nouvelle façon de chercher.
+              </p>
+
+              <div className="ai-points">
+                <div>
+                  <h3>Compris par les assistants IA</h3>
+                  <p>Données structurées, questions fréquentes et fiche Google cohérente, pour que l’IA sache qui vous êtes, où vous êtes et ce que vous offrez.</p>
+                </div>
+                <div>
+                  <h3>Un assistant qui répond à toute heure</h3>
+                  <p>Sur votre site, il répond aux questions fréquentes et guide vers la réservation, même à 23 h un dimanche.</p>
+                </div>
+                <div>
+                  <h3>Du contenu prêt plus vite</h3>
+                  <p>Textes, traductions français-anglais et publications Google préparés avec l’IA, puis relus avec soin.</p>
+                </div>
+              </div>
+            </div>
+
+            <AiDemo />
+          </div>
+        </section>
+
         {/* ================= PROJECT ================= */}
         <section id="work" className="wk-section">
           <div className="container">
@@ -550,54 +671,82 @@ function App() {
           </div>
         </section>
 
-        {/* ================= WHY VYSARA ================= */}
-        <section id="about" className="why-section">
+        {/* ================= À PROPOS ================= */}
+        <section id="about" className="ab-section">
           <div className="container">
-            <div className="why-heading">
-              <p className="section-eyebrow">POURQUOI VYSARA</p>
-              <h2>Un partenaire numérique orienté vers vos résultats.</h2>
-              <p>
-                Nous ne voulons pas simplement créer un joli site. Chaque
-                solution doit avoir un objectif concret pour votre entreprise.
-              </p>
+            <div className="ab-inner">
+              <figure className="ab-visual">
+                <svg viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+                  <circle cx="200" cy="200" r="196" fill="#16284B" />
+                  <circle cx="200" cy="200" r="178" fill="none" stroke="#F7F3EC" strokeOpacity="0.18" strokeWidth="1.5" strokeDasharray="0 10" strokeLinecap="round" />
+                  <path d="M200 40 C228 88 272 128 320 200 C272 272 228 312 200 360 C172 312 128 272 80 200 C128 128 172 88 200 40 Z" fill="none" stroke="#F7F3EC" strokeWidth="3" />
+                  <path d="M200 96 C218 128 248 156 280 200 C248 244 218 272 200 304 C182 272 152 244 120 200 C152 156 182 128 200 96 Z" fill="#8C2745" />
+                  <circle cx="200" cy="200" r="22" fill="#E7B3C2" />
+                  <circle cx="200" cy="18" r="6" fill="#7FA89C" />
+                  <circle cx="200" cy="382" r="6" fill="#7FA89C" />
+                </svg>
+                <figcaption className="ab-logo-story">
+                  <h3>Pourquoi un toranj ?</h3>
+                  <p>
+                    Le logo de Vysara s’inspire du toranj, le grand médaillon
+                    au centre des tapis persans. Dans un tapis, tout part de
+                    lui : les motifs s’organisent autour de ce cœur avec
+                    équilibre et précision.
+                  </p>
+                  <p>
+                    C’est notre façon de travailler : votre entreprise au
+                    centre, et chaque détail de votre site pensé autour d’elle.
+                  </p>
+                </figcaption>
+              </figure>
+
+              <div className="ab-content">
+                <h2>Un site fait avec soin, par la personne qui vous répond.</h2>
+
+                <p className="ab-lead">
+                  Vysara est une agence web à taille humaine, basée à
+                  Repentigny. Du premier appel à la mise en ligne, vous parlez
+                  à la même personne : celle qui dessine, code et entretient
+                  votre site.
+                </p>
+
+                <ul className="ab-promises">
+                  <li>Un site pensé d’abord pour le téléphone, là où vos clients vous cherchent.</li>
+                  <li>Votre site et votre nom de domaine vous appartiennent.</li>
+                  <li>Des réponses en français, sans jargon technique.</li>
+                </ul>
+
+                <blockquote className="ab-quote">
+                  <p>
+                    Un bon site ne se remarque pas pour sa technique. On le
+                    remarque parce que le téléphone sonne davantage.
+                  </p>
+                  <cite>Samaneh Mahboudi, fondatrice de Vysara</cite>
+                </blockquote>
+              </div>
             </div>
 
-            <div className="why-grid">
-              <article>
-                <div className="why-icon">
-                  <IconDiamond />
-                </div>
-                <h3>Design professionnel</h3>
-                <p>
-                  Une présence moderne qui inspire confiance dès la première
-                  visite.
-                </p>
-              </article>
-
-              <article>
-                <div className="why-icon">
-                  <IconTarget />
-                </div>
-                <h3>Solutions adaptées</h3>
-                <p>
-                  Nous choisissons la bonne technologie selon vos besoins, sans
-                  complexité inutile.
-                </p>
-              </article>
-
-              <article>
-                <div className="why-icon">
-                  <IconUsers />
-                </div>
-                <h3>Accompagnement humain</h3>
-                <p>
-                  Une communication claire et un accompagnement avant, pendant
-                  et après le projet.
-                </p>
-              </article>
-            </div>
+            <ol className="ab-steps" aria-label="Comment se déroule un projet">
+              <li>
+                <h3>On se parle</h3>
+                <p>Un appel de 20 minutes pour comprendre votre entreprise, vos clients et ce que vous attendez du site.</p>
+              </li>
+              <li>
+                <h3>Vous voyez avant qu’on construise</h3>
+                <p>Une maquette de votre page d’accueil, à valider avant d’écrire la moindre ligne de code.</p>
+              </li>
+              <li>
+                <h3>On construit et on teste</h3>
+                <p>Votre site est développé puis vérifié sur téléphone, tablette et ordinateur.</p>
+              </li>
+              <li>
+                <h3>On reste là après</h3>
+                <p>Mise en ligne, fiche Google, petites modifications : vous n’êtes pas seul une fois le site publié.</p>
+              </li>
+            </ol>
           </div>
         </section>
+
         {/* ================= CONTACT ================= */}
         <section id="contact" className="contact-section">
           <span className="contact-decorative">
@@ -724,6 +873,7 @@ function App() {
           <div className="footer-links">
             <a href="#home">Accueil</a>
             <a href="#services">Services</a>
+            <a href="#ia">IA</a>
             <a href="#work">Réalisations</a>
             <a href="#about">À propos</a>
             <a href="#contact">Contact</a>
