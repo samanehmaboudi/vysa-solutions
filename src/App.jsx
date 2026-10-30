@@ -244,6 +244,8 @@ const AI_QA = [
 const AiDemo = () => {
   const [messages, setMessages] = useState([
     { from: "bot", text: "Bonjour ! Je suis l’assistant de Belle Rose. Comment puis-je vous aider ?" },
+    { from: "user", text: "Comment prendre rendez-vous ?" },
+    { from: "bot", text: "C’est simple : touchez « Prendre rendez-vous », choisissez le service, puis l’heure qui vous convient. Vous recevez une confirmation par courriel." },
   ]);
   const [typing, setTyping] = useState(false);
 
@@ -302,78 +304,6 @@ const AiDemo = () => {
 };
 
 /* ================= ICONES (SVG inline, aucune dépendance) ================= */
-
-const IconMonitor = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <rect x="3" y="4" width="18" height="13" rx="2" />
-    <path d="M8 21h8M12 17v4" strokeLinecap="round" />
-  </svg>
-);
-
-const IconWordpress = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <circle cx="12" cy="12" r="9" />
-    <path
-      d="M4.5 10h1.8l2.6 7.3L10.6 12 9 7.7H7.4M13.2 7.7h4.9M15.4 10l2 6-1 3M12 7.7l3.2 9"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const IconCalendar = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <rect x="3" y="5" width="18" height="16" rx="2" />
-    <path d="M3 10h18M8 3v4M16 3v4" strokeLinecap="round" />
-  </svg>
-);
-
-const IconSettings = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <circle cx="12" cy="12" r="3" />
-    <path
-      d="M19.4 13a7.9 7.9 0 0 0 0-2l2-1.5-2-3.4-2.3.9a8 8 0 0 0-1.7-1L15 3h-4l-.4 2.5a8 8 0 0 0-1.7 1l-2.3-.9-2 3.4L6.6 11a7.9 7.9 0 0 0 0 2l-2 1.5 2 3.4 2.3-.9a8 8 0 0 0 1.7 1L11 21h4l.4-2.5a8 8 0 0 0 1.7-1l2.3.9 2-3.4-2-1.5Z"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const IconDiamond = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M6 3h12l4 6-10 12L2 9Z" strokeLinejoin="round" />
-    <path d="M2 9h20M9 3l-2 6 5 12 5-12-2-6" strokeLinejoin="round" />
-  </svg>
-);
-
-const IconTarget = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <circle cx="12" cy="12" r="9" />
-    <circle cx="12" cy="12" r="5" />
-    <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" />
-  </svg>
-);
-
-const IconUsers = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <circle cx="9" cy="8" r="3" />
-    <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" strokeLinecap="round" />
-    <circle cx="17" cy="9" r="2.4" />
-    <path d="M15.5 14.2c2.5.3 4.5 2.5 4.5 5.3" strokeLinecap="round" />
-  </svg>
-);
-
-const IconChart = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M4 20V10M11 20V4M18 20v-7" strokeLinecap="round" />
-  </svg>
-);
-
-const IconQuote = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M7 7c-2.5 0-4.5 2-4.5 4.5S4.5 16 7 16c.3 0 .6 0 .8-.1C7 18 5.2 19.4 3 19.8v2.1c4.3-.5 7.5-3.5 7.5-8.4V11c0-2.5-1.5-4-3.5-4Zm10 0c-2.5 0-4.5 2-4.5 4.5S14.5 16 17 16c.3 0 .6 0 .8-.1-.8 2.1-2.6 3.5-4.8 3.9v2.1c4.3-.5 7.5-3.5 7.5-8.4V11c0-2.5-1.5-4-3.5-4Z" />
-  </svg>
-);
 
 const IconLinkedin = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
