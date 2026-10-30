@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 import belleRoseImage from "./assets/belle-rose-project.png";
 import sereniteImage from "./assets/serenite-project.jpg";
+import belleRoseVideo from "./assets/belle-rose-mobile.mp4";
+import belleRosePoster from "./assets/belle-rose-mobile-poster.jpg";
 
 /* ================= LOGO VYSARA (ترنج — médaillon de tapis persan) ================= */
 
@@ -41,87 +43,65 @@ const LogoMark = ({ className = "", onDark = false }) => (
   </svg>
 );
 
-/* ================= MAQUETTE HERO (HTML/CSS, sans image) ================= */
+/* ================= HERO — MÉDAILLON (ترنج) + VRAI PROJET ================= */
 
-const HeroMockup = () => (
-  <div
-    className="hero-image hero-mockup"
-    role="img"
-    aria-label="Exemple de site web et de réservation en ligne créé par Vysara"
-  >
-    <div className="mk-browser">
-      <div className="mk-bar">
-        <span className="mk-dots">
-          <i />
-          <i />
-          <i />
-        </span>
-        <span className="mk-url">votre-entreprise.ca</span>
+const HeroMedallion = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduce.matches && videoRef.current) videoRef.current.pause();
+  }, []);
+
+  return (
+    <figure className="hx-visual">
+      <div className="hx-stage">
+      <svg
+        className="hx-medallion"
+        viewBox="0 0 640 640"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <circle className="hx-draw hx-ring" cx="320" cy="320" r="306" pathLength="1" />
+        <circle className="hx-dots" cx="320" cy="320" r="288" />
+        <path
+          className="hx-draw hx-toranj-outer"
+          pathLength="1"
+          d="M320 16 C386.5 130 491 225 605 320 C491 415 386.5 510 320 624 C253.5 510 149 415 35 320 C149 225 253.5 130 320 16 Z"
+        />
+        <path
+          className="hx-draw hx-toranj-inner"
+          pathLength="1"
+          d="M320 88 C370.8 175 450.5 247.5 537.5 320 C450.5 392.5 370.8 465 320 552 C269.2 465 189.5 392.5 102.5 320 C189.5 247.5 269.2 175 320 88 Z"
+        />
+        <circle className="hx-pin" cx="320" cy="6" r="5" />
+        <circle className="hx-pin" cx="320" cy="634" r="5" />
+        <circle className="hx-pin" cx="14" cy="320" r="5" />
+        <circle className="hx-pin" cx="626" cy="320" r="5" />
+      </svg>
+
+      <div className="hx-phone">
+        <video
+          ref={videoRef}
+          className="hx-screen"
+          src={belleRoseVideo}
+          poster={belleRosePoster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Aperçu sur mobile du site Belle Rose, un salon de coiffure"
+        />
+      </div>
       </div>
 
-      <div className="mk-page">
-        <div className="mk-nav">
-          <span className="mk-logo">Votre commerce</span>
-          <span className="mk-links">
-            <i>Services</i>
-            <i>À propos</i>
-            <i>Contact</i>
-          </span>
-          <span className="mk-nav-btn">Réserver</span>
-        </div>
-
-        <div className="mk-hero">
-          <div className="mk-hero-text">
-            <span className="mk-eyebrow">Salon de beauté</span>
-            <strong className="mk-title">
-              Votre beauté,
-              <br />
-              notre savoir-faire.
-            </strong>
-            <span className="mk-lines">
-              <i />
-              <i />
-            </span>
-            <span className="mk-cta">Réserver en ligne</span>
-          </div>
-          <div className="mk-hero-art" aria-hidden="true">
-            <span className="mk-circle" />
-            <span className="mk-leaf" />
-          </div>
-        </div>
-
-        <div className="mk-services">
-          <span>Coiffure</span>
-          <span>Soins</span>
-          <span>Maquillage</span>
-        </div>
-      </div>
-    </div>
-
-    <div className="mk-phone">
-      <div className="mk-phone-notch" />
-      <span className="mk-phone-title">Réservation</span>
-      <span className="mk-phone-month">Novembre</span>
-      <div className="mk-cal">
-        {Array.from({ length: 14 }, (_, i) => (
-          <i key={i} className={i === 9 ? "is-active" : ""}>
-            {i + 3}
-          </i>
-        ))}
-      </div>
-      <div className="mk-slots">
-        <i>10:00</i>
-        <i className="is-active">11:30</i>
-        <i>14:00</i>
-      </div>
-      <span className="mk-phone-btn">Confirmer</span>
-    </div>
-
-    <div className="mk-badge">
-      <span>✓</span> Réservation confirmée
-    </div>
-  </div>
-);
+      <figcaption className="hx-caption">
+        Belle Rose, site pour un salon de coiffure (projet concept)
+      </figcaption>
+    </figure>
+  );
+};
 
 /* ================= ICONES (SVG inline, aucune dépendance) ================= */
 
@@ -332,70 +312,38 @@ function App() {
 
       <main>
         {/* ================= HERO ================= */}
-        <section id="home" className="hero">
-          <span className="hero-side-note">
-            Des idées d’aujourd’hui pour un meilleur demain.
-          </span>
-
-          <div className="container hero-inner">
-            <div className="hero-content">
-              <p className="eyebrow">
-                SOLUTIONS NUMÉRIQUES POUR PETITES ENTREPRISES
-              </p>
-
-              <h1>
-                Renforcez votre
-                <br />
-                présence en ligne.
-                <br />
-                <span>Faites grandir votre entreprise</span>
-                <br />
-                avec confiance.
+        <section id="home" className="hero-v2">
+          <div className="container hx-inner">
+            <div className="hx-content">
+              <h1 className="hx-title">
+                <span className="hx-line">Des sites web</span>
+                <span className="hx-line">qui font venir</span>
+                <span className="hx-line">vos clients.</span>
               </h1>
 
-              <p className="hero-text">
-                Nous créons des sites web modernes et des solutions numériques
-                intelligentes pour aider les petites entreprises à renforcer
-                leur crédibilité, attirer plus de clients et simplifier leur
-                quotidien.
+              <p className="hx-text">
+                Vysara conçoit des sites rapides et soignés pour les salons,
+                cliniques et commerces de Repentigny, de Lanaudière et du
+                Grand Montréal : réservation en ligne, formulaires, Google Maps
+                et suivi après la mise en ligne.
               </p>
 
-              <div className="hero-buttons">
-                <a href="#contact" className="primary-btn">
-                  Démarrer mon projet →
+              <div className="hx-buttons">
+                <a href="#contact" className="hx-btn hx-btn-primary">
+                  Démarrer mon projet
                 </a>
-                <a href="#work" className="secondary-btn">
+                <a href="#work" className="hx-btn hx-btn-ghost">
                   Voir nos réalisations
                 </a>
               </div>
 
-              <div className="hero-benefits">
-                <span>✓ Petites entreprises</span>
-                <span>✓ Moderne &amp; évolutif</span>
-                <span>✓ Accompagnement humain</span>
-              </div>
+              <p className="hx-note">
+                Basée à Repentigny. Accompagnement en français, du premier
+                appel à la mise en ligne.
+              </p>
             </div>
 
-            <div className="hero-visual">
-              <span className="hero-decorative">
-                Sites web
-                <br />
-                Réservations
-                <br />
-                Croissance
-                <br />
-                Ensemble
-              </span>
-
-              <HeroMockup />
-
-              <div className="hero-floating-card">
-                <span className="hero-floating-icon">
-                  <IconChart />
-                </span>
-                <p>Des solutions pour faire grandir votre entreprise.</p>
-              </div>
-            </div>
+            <HeroMedallion />
           </div>
         </section>
 

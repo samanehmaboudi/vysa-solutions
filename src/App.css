@@ -2231,3 +2231,287 @@ h3,
   text-decoration: none;
 }
 .footer-email:hover { color: #ffffff; }
+
+/* =========================================================
+   HERO V2 — médaillon ترنج + vrai projet sur mobile
+   Un seul moment animé au chargement : le médaillon se
+   dessine, le titre monte ligne par ligne, le téléphone
+   apparaît. Tout est coupé si prefers-reduced-motion.
+========================================================= */
+
+.hero-v2 {
+  --hx-night: #16284b;
+  --hx-night-deep: #0f1d39;
+  --hx-ivory: #f7f3ec;
+  --hx-rose: #e7b3c2;
+  --hx-sage: #7fa89c;
+
+  position: relative;
+  overflow: hidden;
+  color: var(--hx-ivory);
+  background:
+    radial-gradient(ellipse 60% 70% at 78% 50%, #1d3360 0%, transparent 70%),
+    var(--hx-night);
+}
+
+.hx-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 88px);
+  min-height: min(760px, calc(100vh - 80px));
+  padding-top: clamp(56px, 7vw, 96px);
+  padding-bottom: clamp(56px, 7vw, 96px);
+}
+
+.hx-content {
+  max-width: 600px;
+}
+
+.hx-title {
+  margin: 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.9rem, 5.6vw, 5.4rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--hx-ivory);
+}
+
+.hx-line {
+  display: block;
+  animation: hx-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hx-line:nth-child(2) { animation-delay: 0.12s; }
+.hx-line:nth-child(3) { animation-delay: 0.24s; }
+
+.hx-text {
+  max-width: 34em;
+  margin: 28px 0 34px;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: rgba(247, 243, 236, 0.78);
+  animation: hx-fade 0.9s ease 0.45s both;
+}
+
+.hx-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  animation: hx-fade 0.9s ease 0.55s both;
+}
+
+.hx-btn {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hx-btn-primary {
+  color: #ffffff;
+  background: var(--primary);
+}
+
+.hx-btn-primary:hover {
+  background: #a3304f;
+}
+
+.hx-btn-ghost {
+  color: var(--hx-ivory);
+  border: 1px solid rgba(247, 243, 236, 0.35);
+}
+
+.hx-btn-ghost:hover {
+  border-color: var(--hx-ivory);
+  background: rgba(247, 243, 236, 0.06);
+}
+
+.hx-btn:focus-visible {
+  outline: 2px solid var(--hx-rose);
+  outline-offset: 3px;
+}
+
+.hx-note {
+  margin: 28px 0 0;
+  font-size: 0.88rem;
+  color: rgba(247, 243, 236, 0.55);
+  animation: hx-fade 0.9s ease 0.65s both;
+}
+
+/* ---------- Visuel : médaillon + téléphone ---------- */
+
+.hx-visual {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hx-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.hx-medallion {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hx-draw {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: hx-draw 2.2s cubic-bezier(0.6, 0, 0.2, 1) 0.1s forwards;
+}
+
+.hx-ring {
+  stroke: rgba(247, 243, 236, 0.16);
+  stroke-width: 1;
+}
+
+.hx-toranj-outer {
+  stroke: rgba(247, 243, 236, 0.32);
+  stroke-width: 1.4;
+  animation-delay: 0.25s;
+}
+
+.hx-toranj-inner {
+  stroke: var(--hx-rose);
+  stroke-opacity: 0.55;
+  stroke-width: 1.2;
+  animation-delay: 0.45s;
+}
+
+.hx-dots {
+  fill: none;
+  stroke: rgba(247, 243, 236, 0.28);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 0 14;
+  animation: hx-fade 1s ease 1.4s both;
+}
+
+.hx-pin {
+  fill: var(--hx-sage);
+  animation: hx-fade 0.8s ease 1.8s both;
+}
+
+.hx-phone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42%;
+  padding: 9px;
+  background: var(--hx-night-deep);
+  border: 1px solid rgba(247, 243, 236, 0.18);
+  border-radius: 38px;
+  box-shadow:
+    0 40px 80px rgba(5, 12, 28, 0.55),
+    0 0 0 6px rgba(247, 243, 236, 0.04);
+  transform: translate(-50%, -50%);
+  animation: hx-phone-in 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.7s both;
+}
+
+.hx-screen {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 30px;
+  background: #ffffff;
+}
+
+.hx-caption {
+  margin-top: 18px;
+  font-size: 0.82rem;
+  color: rgba(247, 243, 236, 0.6);
+  text-align: center;
+  animation: hx-fade 0.8s ease 1.6s both;
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes hx-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes hx-rise {
+  from { opacity: 0; transform: translateY(0.4em); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes hx-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hx-phone-in {
+  from { opacity: 0; transform: translate(-50%, -46%) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-v2 *,
+  .hero-v2 *::before,
+  .hero-v2 *::after {
+    animation: none !important;
+  }
+
+  .hx-draw {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 980px) {
+  .hx-inner {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 48px;
+  }
+
+  .hx-content {
+    max-width: 640px;
+  }
+
+  .hx-visual {
+    max-width: 440px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hx-title {
+    font-size: clamp(2.5rem, 11vw, 3.2rem);
+  }
+
+  .hx-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hx-btn {
+    justify-content: center;
+  }
+
+  .hx-phone {
+    width: 44%;
+    border-radius: 28px;
+    padding: 6px;
+  }
+
+  .hx-screen {
+    border-radius: 23px;
+  }
+}
