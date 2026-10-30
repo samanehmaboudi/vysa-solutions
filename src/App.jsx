@@ -103,6 +103,118 @@ const HeroMedallion = () => {
   );
 };
 
+/* ================= SERVICES — liste dépliable ================= */
+
+const SERVICES = [
+  {
+    title: "Sites web sur mesure",
+    text: "Un site vitrine clair, rapide et pensé pour le mobile, qui présente vos services et donne envie de vous contacter.",
+    items: [
+      "Design adapté à votre image",
+      "Pages services, à propos et contact",
+      "Bases du référencement local sur Google",
+    ],
+  },
+  {
+    title: "Réservation et formulaires",
+    text: "Vos clients prennent rendez-vous ou vous écrivent directement depuis votre site, même le soir et la fin de semaine.",
+    items: [
+      "Prise de rendez-vous en ligne",
+      "Formulaires de contact et de soumission",
+      "Carte Google Maps et itinéraire",
+    ],
+  },
+  {
+    title: "WordPress et applications web",
+    text: "Un site que vous modifiez vous-même avec WordPress, ou une application sur mesure en React et Laravel quand vos besoins vont plus loin.",
+    items: [
+      "Formation pour modifier vos textes et photos",
+      "Espace client ou outils internes",
+      "Connexion avec les outils que vous utilisez déjà",
+    ],
+  },
+  {
+    title: "Entretien et soutien",
+    text: "Mises à jour, sauvegardes et petites modifications, pour que votre site reste fiable sans que vous ayez à y penser.",
+    items: [
+      "Mises à jour et sauvegardes",
+      "Petites modifications de contenu",
+      "Une personne qui vous répond, en français",
+    ],
+  },
+];
+
+const ToranjGlyph = () => (
+  <svg className="sv-glyph" viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+    <path d="M25 4 C29 12 35 18.5 46 25 C35 31.5 29 38 25 46 C21 38 15 31.5 4 25 C15 18.5 21 12 25 4 Z" />
+  </svg>
+);
+
+const ServicesList = () => {
+  const [open, setOpen] = useState(0);
+
+  return (
+    <ul className="sv-list">
+      {SERVICES.map((s, i) => {
+        const isOpen = open === i;
+        const panelId = `sv-panel-${i}`;
+        return (
+          <li key={s.title} className={`sv-item${isOpen ? " is-open" : ""}`}>
+            <h3 className="sv-heading">
+              <button
+                type="button"
+                className="sv-trigger"
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                onClick={() => setOpen(isOpen ? -1 : i)}
+              >
+                <span>{s.title}</span>
+                <ToranjGlyph />
+              </button>
+            </h3>
+            <div id={panelId} className="sv-panel" role="region" aria-label={s.title}>
+              <div className="sv-panel-inner">
+                <p>{s.text}</p>
+                <ul className="sv-included" aria-label="Inclus">
+                  {s.items.map((it) => (
+                    <li key={it}>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+/* ================= RÉALISATIONS — études de cas ================= */
+
+const PROJECTS = [
+  {
+    name: "Belle Rose",
+    kind: "Salon de coiffure à Repentigny (projet concept)",
+    url: "https://belle-rose-salon.vercel.app",
+    image: belleRoseImage,
+    alt: "Page d’accueil du site Belle Rose, un salon de coiffure",
+    need: "Un salon qui reçoit surtout ses rendez-vous par téléphone et veut montrer ses prix et son ambiance avant la première visite.",
+    solution: "Un site doux et élégant avec les services et les prix, une galerie de styles et un bouton de rendez-vous toujours visible sur mobile.",
+    tech: "React, design responsive",
+  },
+  {
+    name: "Sérénité",
+    kind: "Massothérapeute à Repentigny (projet concept)",
+    url: "https://serenite-massage.vercel.app",
+    image: sereniteImage,
+    alt: "Page d’accueil du site Sérénité, massothérapie et bien-être",
+    need: "Une massothérapeute qui veut rassurer ses nouveaux clients et les aider à choisir le bon soin.",
+    solution: "Une ambiance calme, une présentation claire de chaque soin, un accès rapide à la prise de rendez-vous et une carte Google Maps.",
+    tech: "React, Google Maps",
+    browserBar: true,
+  },
+];
+
 /* ================= ICONES (SVG inline, aucune dépendance) ================= */
 
 const IconMonitor = () => (
@@ -348,157 +460,92 @@ function App() {
         </section>
 
         {/* ================= SERVICES ================= */}
-        <section id="services" className="services-section">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="section-eyebrow">NOS SERVICES</p>
-                <h2>
-                  Tout ce dont votre entreprise a besoin pour grandir en ligne.
-                </h2>
-              </div>
-
-              <p className="section-intro">
-                Des sites professionnels aux intégrations pratiques, nous créons
-                des solutions simples, modernes et adaptées aux besoins réels
-                des petites entreprises.
+        <section id="services" className="sv-section">
+          <div className="container sv-inner">
+            <div className="sv-intro">
+              <h2>Un site, et tout ce qui le fait travailler pour vous.</h2>
+              <p>
+                On commence par ce dont votre entreprise a vraiment besoin.
+                Le reste s’ajoute quand vous êtes prêt.
+              </p>
+              <a href="#contact" className="sv-link">
+                Parlons de votre projet
+              </a>
+              <p className="sv-mail">
+                Ou écrivez-nous :{" "}
+                <a href="mailto:contact@vysara.ca">contact@vysara.ca</a>
               </p>
             </div>
 
-            <div className="services-grid">
-              <article className="service-card">
-                <div className="service-icon">
-                  <IconMonitor />
-                </div>
-                <h3>Création de sites web</h3>
-                <p>
-                  Des sites modernes, rapides, professionnels et parfaitement
-                  adaptés aux mobiles.
-                </p>
-                <a href="#contact">En savoir plus →</a>
-              </article>
-
-              <article className="service-card">
-                <div className="service-icon">
-                  <IconWordpress />
-                </div>
-                <h3>WordPress &amp; développement</h3>
-                <p>
-                  WordPress, React et solutions adaptées aux besoins de votre
-                  entreprise.
-                </p>
-                <a href="#contact">En savoir plus →</a>
-              </article>
-
-              <article className="service-card">
-                <div className="service-icon">
-                  <IconCalendar />
-                </div>
-                <h3>Réservation &amp; formulaires</h3>
-                <p>
-                  Rendez-vous, formulaires, Google Maps et intégrations pour
-                  simplifier l’expérience de vos clients.
-                </p>
-                <a href="#contact">En savoir plus →</a>
-              </article>
-
-              <article className="service-card">
-                <div className="service-icon">
-                  <IconSettings />
-                </div>
-                <h3>Maintenance &amp; soutien</h3>
-                <p>
-                  Mises à jour, entretien et accompagnement pour garder votre
-                  présence numérique performante.
-                </p>
-                <a href="#contact">En savoir plus →</a>
-              </article>
-            </div>
+            <ServicesList />
           </div>
         </section>
 
         {/* ================= PROJECT ================= */}
-        <section id="work" className="project-section">
-          <div className="container project-grid">
-            <div className="project-content">
-              <p className="section-eyebrow">PROJET CONCEPT</p>
-              <h2>Belle Rose Salon</h2>
-
-              <p className="project-lead">
-                Un site moderne et élégant pensé pour présenter un salon de
-                beauté de façon professionnelle.
+        <section id="work" className="wk-section">
+          <div className="container">
+            <div className="wk-head">
+              <h2>Des sites pensés pour des commerces d’ici.</h2>
+              <p>
+                Deux projets concepts qui montrent ce que nous pouvons faire
+                pour un salon, une clinique ou un commerce de quartier. Le
+                prochain pourrait être le vôtre.
               </p>
-
-              <p className="project-text">
-                Une expérience claire et responsive qui met en valeur les
-                services, facilite la prise de rendez-vous et renforce la
-                crédibilité du salon en ligne.
-              </p>
-
-              <div className="project-tags">
-                <span>React</span>
-                <span>Responsive</span>
-                <span>Design moderne</span>
-              </div>
-
-              <a
-                href="https://belle-rose-salon.vercel.app"
-                className="primary-btn project-btn"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Voir le projet →
-              </a>
             </div>
 
-            <div className="project-image-wrapper">
-              <img
-                src={belleRoseImage}
-                alt="Projet Belle Rose Salon"
-                className="project-image"
-              />
-            </div>
-          </div>
+            <div className="wk-list">
+              {PROJECTS.map((p, i) => (
+                <article
+                  key={p.name}
+                  className={`wk-case${i % 2 ? " wk-case--flip" : ""}`}
+                >
+                  <a
+                    href={p.url}
+                    className="wk-shot"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Visiter le site ${p.name} (nouvel onglet)`}
+                  >
+                    {p.browserBar && (
+                      <span className="wk-bar" aria-hidden="true">
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                    )}
+                    <img src={p.image} alt={p.alt} loading="lazy" />
+                  </a>
 
-          {/* ----- Projet 2 : Sérénité Massage ----- */}
-          <div className="container project-grid project-grid--reverse">
-            <div className="project-content">
-              <p className="section-eyebrow">PROJET CONCEPT</p>
-              <h2>Sérénité Massage</h2>
+                  <div className="wk-body">
+                    <h3>{p.name}</h3>
+                    <p className="wk-kind">{p.kind}</p>
 
-              <p className="project-lead">
-                Un site apaisant et professionnel pour une massothérapeute à
-                Repentigny.
-              </p>
+                    <dl className="wk-facts">
+                      <div>
+                        <dt>Le besoin</dt>
+                        <dd>{p.need}</dd>
+                      </div>
+                      <div>
+                        <dt>Notre réponse</dt>
+                        <dd>{p.solution}</dd>
+                      </div>
+                      <div>
+                        <dt>Réalisé avec</dt>
+                        <dd>{p.tech}</dd>
+                      </div>
+                    </dl>
 
-              <p className="project-text">
-                Une présentation claire des soins, une ambiance visuelle
-                chaleureuse, un accès rapide à la prise de rendez-vous et une
-                carte Google Maps pour trouver facilement le cabinet.
-              </p>
-
-              <div className="project-tags">
-                <span>React</span>
-                <span>Responsive</span>
-                <span>Google Maps</span>
-              </div>
-
-              <a
-                href="https://serenite-massage.vercel.app"
-                className="primary-btn project-btn"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Voir le projet →
-              </a>
-            </div>
-
-            <div className="project-image-wrapper">
-              <img
-                src={sereniteImage}
-                alt="Projet Sérénité Massage & Bien-être"
-                className="project-image"
-              />
+                    <a
+                      href={p.url}
+                      className="wk-link"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Visiter le site
+                    </a>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
