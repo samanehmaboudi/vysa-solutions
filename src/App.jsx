@@ -408,7 +408,7 @@ function App() {
             <LogoMark className="brand-mark" />
             <span className="brand-text">
               <span className="brand-main">VYSARA</span>
-              <span className="brand-sub">{T("Sites web &amp; applications", "Websites &amp; applications")}</span>
+              <span className="brand-sub">{T("Sites web & applications", "Websites & applications")}</span>
             </span>
           </a>
 
@@ -805,7 +805,7 @@ function App() {
               <span>
                 <strong>VYSARA</strong>
                 <span className="footer-brand-sub">
-                  {T("Sites web &amp; applications", "Websites &amp; applications")}
+                  {T("Sites web & applications", "Websites & applications")}
                 </span>
               </span>
             </div>
