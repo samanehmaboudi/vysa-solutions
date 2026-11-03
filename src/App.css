@@ -3051,8 +3051,14 @@ h3,
   }
 
   .ab-visual {
-    justify-self: start;
+    justify-self: center;
+    max-width: 560px;
+    text-align: center;
+  }
+
+  .ab-visual svg {
     max-width: 280px;
+    margin: 0 auto;
   }
 
   .ab-steps {
