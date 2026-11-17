@@ -3,6 +3,7 @@ import "./App.css";
 
 import belleRoseImage from "./assets/belle-rose-project.png";
 import sereniteImage from "./assets/serenite-project.jpg";
+import mielluneImage from "./assets/miellune-project.jpg";
 import belleRoseVideo from "./assets/belle-rose-mobile.mp4";
 import belleRosePoster from "./assets/belle-rose-mobile-poster.jpg";
 
@@ -229,6 +230,17 @@ const PROJECTS = [
     need: T("Une massothérapeute qui veut rassurer ses nouveaux clients et les aider à choisir le bon soin.", "A massage therapist who wants to reassure new clients and help them choose the right treatment."),
     solution: T("Une ambiance calme, une présentation claire de chaque soin, un accès rapide à la prise de rendez-vous et une carte Google Maps.", "A calm atmosphere, a clear presentation of each treatment, quick access to booking and a Google Map."),
     tech: "React, Google Maps",
+    browserBar: true,
+  },
+  {
+    name: "Miellune",
+    kind: T("Café de quartier (projet concept)", "Neighbourhood café (concept project)"),
+    url: "https://miellune.vercel.app",
+    image: mielluneImage,
+    alt: T("Site Miellune : du miel coule sur un latte, sur un fond sombre", "Miellune website: honey pouring onto a latte on a dark background"),
+    need: T("Un café qui veut se démarquer et donner envie de venir goûter sa boisson signature, dès la première visite en ligne.", "A café that wants to stand out and make people want to taste its signature drink from their very first online visit."),
+    solution: T("Une expérience immersive : au fil du défilement, le miel coule sur le latte et dessine une lune. Le tout reste rapide (97/100 sur mobile selon PageSpeed Insights).", "An immersive experience: as you scroll, honey pours onto the latte and draws a moon. It all stays fast (97/100 on mobile in PageSpeed Insights)."),
+    tech: T("React, GSAP, animation au défilement", "React, GSAP, scroll animation"),
     browserBar: true,
   },
 ];
@@ -566,7 +578,7 @@ function App() {
             <div className="wk-head">
               <h2>{T("Des sites pensés pour des commerces d’ici.", "Websites designed for local businesses.")}</h2>
               <p>
-                {T("Deux projets concepts qui montrent ce que nous pouvons faire pour un salon, une clinique ou un commerce de quartier. Le prochain pourrait être le vôtre.", "Two concept projects that show what we can do for a salon, a clinic or a neighbourhood shop. The next one could be yours.")}
+                {T("Trois projets concepts qui montrent ce que nous pouvons faire pour un salon, une clinique, un café ou un commerce de quartier. Le prochain pourrait être le vôtre.", "Three concept projects that show what we can do for a salon, a clinic, a café or a neighbourhood shop. The next one could be yours.")}
               </p>
             </div>
 
