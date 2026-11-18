@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 import belleRoseImage from "./assets/belle-rose-project.png";
+import belleRosePrestigeImage from "./assets/belle-rose-prestige-project.jpg";
 import sereniteImage from "./assets/serenite-project.jpg";
 import mielluneImage from "./assets/miellune-project.jpg";
 import belleRoseVideo from "./assets/belle-rose-mobile.mp4";
@@ -212,8 +213,19 @@ const ServicesList = () => {
 
 const PROJECTS = [
   {
+    name: "Belle Rose Prestige",
+    kind: T("Salon de beauté, version premium animée (projet concept)", "Beauty salon, premium animated version (concept project)"),
+    url: "https://belle-rose-prestige.vercel.app",
+    image: belleRosePrestigeImage,
+    alt: T("Site Belle Rose Prestige : une rose rose poudré dont les pétales deviennent des cheveux soyeux, sur un fond vert olive", "Belle Rose Prestige website: a powder-pink rose whose petals turn into silky hair, on an olive-green background"),
+    need: T("Un salon déjà bien établi qui veut une présence en ligne à la hauteur de son savoir-faire et se distinguer des sites de salon classiques.", "An established salon that wants an online presence that matches its craft and stands out from typical salon websites."),
+    solution: T("Une expérience cinématique : au fil du défilement, chaque service prend vie par son geste (la rose qui devient chevelure, les ciseaux, le pinceau de couleur, le vernis, la goutte de sérum), avec une demande de rendez-vous à la fin. Le site reste rapide (92/100 sur mobile selon PageSpeed Insights).", "A cinematic experience: as you scroll, each service comes to life through its gesture (the rose turning into hair, the scissors, the colour brush, the polish, the drop of serum), with an appointment request at the end. The site stays fast (92/100 on mobile in PageSpeed Insights)."),
+    tech: T("React, GSAP, animations au défilement, vidéos IA", "React, GSAP, scroll animations, AI videos"),
+    browserBar: true,
+  },
+  {
     name: "Belle Rose",
-    kind: T("Salon de coiffure à Repentigny (projet concept)", "Hair salon in Repentigny (concept project)"),
+    kind: T("Salon de coiffure, version essentielle (projet concept)", "Hair salon, essential version (concept project)"),
     url: "https://belle-rose-salon.vercel.app",
     image: belleRoseImage,
     alt: T("Page d’accueil du site Belle Rose, un salon de coiffure", "Home page of the Belle Rose hair salon website"),
@@ -578,7 +590,7 @@ function App() {
             <div className="wk-head">
               <h2>{T("Des sites pensés pour des commerces d’ici.", "Websites designed for local businesses.")}</h2>
               <p>
-                {T("Trois projets concepts qui montrent ce que nous pouvons faire pour un salon, une clinique, un café ou un commerce de quartier. Le prochain pourrait être le vôtre.", "Three concept projects that show what we can do for a salon, a clinic, a café or a neighbourhood shop. The next one could be yours.")}
+                {T("Quatre projets concepts qui montrent ce que nous pouvons faire pour un salon, une clinique, un café ou un commerce de quartier. Le prochain pourrait être le vôtre.", "Four concept projects that show what we can do for a salon, a clinic, a café or a neighbourhood shop. The next one could be yours.")}
               </p>
             </div>
 
