@@ -5,6 +5,7 @@ import belleRoseImage from "./assets/belle-rose-project.png";
 import belleRosePrestigeImage from "./assets/belle-rose-prestige-project.jpg";
 import sereniteImage from "./assets/serenite-project.jpg";
 import mielluneImage from "./assets/miellune-project.jpg";
+import orivaneImage from "./assets/orivane-project.jpg";
 import belleRoseVideo from "./assets/belle-rose-mobile.mp4";
 import belleRosePoster from "./assets/belle-rose-mobile-poster.jpg";
 
@@ -212,6 +213,17 @@ const ServicesList = () => {
 /* ================= RÉALISATIONS — études de cas ================= */
 
 const PROJECTS = [
+  {
+    name: "Orivane",
+    kind: T("Clinique de médecine esthétique (projet concept)", "Medical aesthetics clinic (concept project)"),
+    url: "https://orivane-alpha.vercel.app",
+    image: orivaneImage,
+    alt: T("Site Orivane : une orchidée blanche éclose parmi des sphères dorées, sur un fond noir", "Orivane website: a white orchid in bloom among golden spheres, on a black background"),
+    need: T("Une clinique de médecine esthétique qui veut inspirer confiance, présenter ses soins avec élégance et retenue, et inviter à une première consultation.", "A medical aesthetics clinic that wants to inspire trust, present its treatments with elegance and restraint, and invite a first consultation."),
+    solution: T("Une expérience cinématique en quatre tableaux : au fil du défilement, chaque soin est évoqué par un objet symbolique (la soie qui se lisse, le marbre sculpté par la lumière, l’orchidée qui éclot, le sablier dont le sable devient perles), jusqu’à la demande de consultation. Le site reste très rapide (100/100 sur mobile selon PageSpeed Insights).", "A cinematic experience in four scenes: as you scroll, each treatment is evoked by a symbolic object (silk smoothing out, marble sculpted by light, an orchid in bloom, an hourglass whose sand turns into pearls), leading to the consultation request. The site stays very fast (100/100 on mobile in PageSpeed Insights)."),
+    tech: T("React, GSAP, animations au défilement, vidéos IA", "React, GSAP, scroll animations, AI videos"),
+    browserBar: true,
+  },
   {
     name: "Belle Rose Prestige",
     kind: T("Salon de beauté, version premium animée (projet concept)", "Beauty salon, premium animated version (concept project)"),
