@@ -2628,7 +2628,7 @@ h3,
   letter-spacing: -0.01em;
 }
 
-.sv-trigger:hover span {
+.sv-trigger:hover .sv-title {
   color: var(--primary);
 }
 
@@ -3558,4 +3558,146 @@ h3,
 .lang-switch a:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+
+/* ================= SERVICES — promesse et étiquettes ================= */
+
+.sv-head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sv-title {
+  transition: color 0.3s ease;
+}
+
+.sv-promise {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #5b6478;
+}
+
+.sv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sv-tag {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.sv-note {
+  margin: 20px 0 0;
+  font-size: 0.95rem;
+  color: #5b6478;
+}
+
+/* ================= BANDEAU OFFRE D’OUVERTURE ================= */
+
+.promo-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 52px;
+  padding-left: max(52px, env(safe-area-inset-left, 0px));
+  padding-right: max(52px, env(safe-area-inset-right, 0px));
+  background: linear-gradient(90deg, #e3c48a 0%, #f3dfb4 50%, #e3c48a 100%);
+  color: #16284b;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.promo-text {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 6px;
+}
+
+.promo-star {
+  margin-right: 4px;
+  color: #8c2745;
+  display: inline-block;
+  animation: promo-twinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes promo-twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.35) rotate(45deg); opacity: 0.7; }
+}
+
+.promo-link {
+  margin-left: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #8c2745;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.promo-link:hover,
+.promo-link:focus-visible {
+  background: #6f1f38;
+}
+
+.promo-close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #16284b;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.promo-close:hover,
+.promo-close:focus-visible {
+  background: rgba(22, 40, 75, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-star { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .promo-bar {
+    font-size: 0.82rem;
+    padding: 9px 44px 9px 16px;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .promo-close {
+    right: 6px;
+  }
+  .sv-promise {
+    font-size: 0.92rem;
+  }
 }

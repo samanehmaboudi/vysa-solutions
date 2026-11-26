@@ -119,48 +119,54 @@ const HeroMedallion = () => {
 
 const SERVICES = [
   {
-    title: T("Sites web sur mesure", "Custom websites"),
-    text: T("Un site vitrine clair, rapide et pensé pour le mobile, qui présente vos services et donne envie de vous contacter.", "A clear, fast, mobile-first website that presents your services and makes people want to contact you."),
+    title: T("Créer", "Build"),
+    promise: T("Un site qui donne envie de vous appeler.", "A website that makes people want to call you."),
+    tags: [T("Sites web", "Websites"), T("Boutique en ligne", "Online store"), T("Applications", "Applications"), T("Réservation", "Booking")],
+    text: T("Un site, une boutique ou une application, conçus sur mesure, rapides et pensés d’abord pour le mobile.", "A website, an online store or an application, custom-built, fast and mobile-first."),
     items: [
-      T("Design adapté à votre image", "Design that fits your brand"),
-      T("Pages services, à propos et contact", "Services, about and contact pages"),
-      T("Bases du référencement local sur Google", "Local SEO basics on Google"),
+      T("Sites web sur mesure ou WordPress, que vous modifiez vous-même", "Custom or WordPress websites you can update yourself"),
+      T("Boutique en ligne (Shopify, WooCommerce)", "Online store (Shopify, WooCommerce)"),
+      T("Applications web et portails clients (React, Laravel)", "Web applications and client portals (React, Laravel)"),
+      T("Réservation en ligne et formulaires", "Online booking and forms"),
+      T("Refonte de votre site actuel", "Redesign of your current website"),
+      T("Identité visuelle : logo, couleurs et typographie", "Visual identity: logo, colours and typography"),
     ],
   },
   {
-    title: T("Réservation et formulaires", "Booking and forms"),
-    text: T("Vos clients prennent rendez-vous ou vous écrivent directement depuis votre site, même le soir et la fin de semaine.", "Your clients book or reach you right from your website, even in the evening and on weekends."),
+    title: T("Automatiser avec l’IA", "Automate with AI"),
+    promise: T("Vos clients ont une réponse jour et nuit, même le dimanche.", "Your clients get an answer day and night, even on Sundays."),
+    tags: [T("Assistant 24/7", "24/7 assistant"), T("Agents IA", "AI agents"), T("Automatisations", "Automations")],
+    text: T("Moins de tâches répétitives, plus de temps pour vos clients.", "Fewer repetitive tasks, more time for your clients."),
     items: [
-      T("Prise de rendez-vous en ligne", "Online booking"),
-      T("Formulaires de contact et de soumission", "Contact and quote request forms"),
-      T("Carte Google Maps et itinéraire", "Google Maps and directions"),
+      T("Assistant IA 24 h sur 24 : réponses, rendez-vous et coordonnées", "24/7 AI assistant: answers, bookings and contact details"),
+      T("Agent IA qui connaît vos services, vos prix et vos procédures", "AI agent that knows your services, prices and procedures"),
+      T("Automatisation des formulaires, courriels, factures et suivis", "Automated forms, emails, invoices and follow-ups"),
+      T("Texto après un appel manqué et demande d’avis Google", "Text after a missed call and Google review requests"),
     ],
   },
   {
-    title: T("WordPress et applications web", "WordPress and web applications"),
-    text: T("Un site que vous modifiez vous-même avec WordPress, ou une application sur mesure en React et Laravel quand vos besoins vont plus loin.", "A website you can update yourself with WordPress, or a custom React and Laravel application when your needs go further."),
+    title: T("Faire grandir", "Grow"),
+    promise: T("Soyez trouvé sur Google… et dans ChatGPT.", "Get found on Google… and in ChatGPT."),
+    tags: [T("SEO et GEO", "SEO & GEO"), T("Fiche Google", "Google profile"), T("Vidéos courtes", "Short videos")],
+    text: T("Être trouvé, choisi et recommandé, sur Google comme dans les réponses de ChatGPT.", "Get found, chosen and recommended, on Google and in ChatGPT’s answers."),
     items: [
-      T("Formation pour modifier vos textes et photos", "Training to update your text and photos"),
-      T("Espace client ou outils internes", "Client portal or internal tools"),
-      T("Connexion avec les outils que vous utilisez déjà", "Connections with the tools you already use"),
+      T("Référencement local (SEO) et visibilité IA (GEO)", "Local SEO and AI visibility (GEO)"),
+      T("Fiche Google optimisée et suivie", "Optimized and managed Google Business Profile"),
+      T("Vidéos courtes pour Reels, TikTok et Shorts", "Short videos for Reels, TikTok and Shorts"),
+      T("Landing page pour une promotion ou un événement", "Landing page for a promotion or an event"),
+      T("Textes et traductions français-anglais", "French-English copy and translations"),
     ],
   },
   {
-    title: T("Entretien et soutien", "Maintenance and support"),
-    text: T("Mises à jour, sauvegardes et petites modifications, pour que votre site reste fiable sans que vous ayez à y penser.", "Updates, backups and small changes, so your website stays reliable without you having to think about it."),
+    title: T("Entretenir et protéger", "Maintain and protect"),
+    promise: T("Un site toujours à jour, sécuritaire et conforme.", "A website that stays up to date, secure and compliant."),
+    tags: [T("Mises à jour", "Updates"), T("Sécurité", "Security"), T("Loi 25", "Law 25")],
+    text: T("Un site fiable, à jour et conforme, sans que vous ayez à y penser.", "A reliable, up-to-date and compliant website, without you having to think about it."),
     items: [
-      T("Mises à jour et sauvegardes", "Updates and backups"),
+      T("Mises à jour, sauvegardes et sécurité", "Updates, backups and security"),
       T("Petites modifications de contenu", "Small content changes"),
+      T("Accompagnement à la conformité Loi 25 (confidentialité) et Loi 96 (français)", "Support for Quebec Law 25 (privacy) and Law 96 (French language) compliance"),
       T("Une personne qui vous répond, en français", "A real person who answers you, in English or French"),
-    ],
-  },
-  {
-    title: T("Assistant IA et visibilité IA", "AI assistant and AI visibility"),
-    text: T("Un assistant qui répond à vos clients jour et nuit, et un site préparé pour être bien compris par ChatGPT, Google et les autres outils d’IA.", "An assistant that answers your clients day and night, and a website built to be clearly understood by ChatGPT, Google and other AI tools."),
-    items: [
-      T("Assistant de questions fréquentes sur votre site", "FAQ assistant on your website"),
-      T("Données structurées et FAQ pour les recherches IA", "Structured data and FAQs for AI search"),
-      T("Textes et traductions préparés avec l’IA", "Copy and translations prepared with AI"),
     ],
   },
 ];
@@ -189,7 +195,15 @@ const ServicesList = () => {
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? -1 : i)}
               >
-                <span>{s.title}</span>
+                <span className="sv-head">
+                  <span className="sv-title">{s.title}</span>
+                  <span className="sv-promise">{s.promise}</span>
+                  <span className="sv-tags">
+                    {s.tags.map((t) => (
+                      <span key={t} className="sv-tag">{t}</span>
+                    ))}
+                  </span>
+                </span>
                 <ToranjGlyph />
               </button>
             </h3>
@@ -375,6 +389,46 @@ const IconHeart = () => (
   </svg>
 );
 
+/* ================= BANDEAU OFFRE D’OUVERTURE (disparaît après le 20 déc. 2026) ================= */
+
+const PROMO_END = new Date("2026-12-21T00:00:00-05:00");
+
+const PromoBar = () => {
+  const [visible, setVisible] = useState(() => {
+    if (new Date() >= PROMO_END) return false;
+    try {
+      return localStorage.getItem("vysara-promo-closed") !== "1";
+    } catch {
+      return true;
+    }
+  });
+
+  if (!visible) return null;
+
+  const close = () => {
+    setVisible(false);
+    try {
+      localStorage.setItem("vysara-promo-closed", "1");
+    } catch {
+      /* stockage indisponible */
+    }
+  };
+
+  return (
+    <div className="promo-bar" role="region" aria-label={T("Offre d’ouverture", "Opening offer")}>
+      <p className="promo-text">
+        <span className="promo-star" aria-hidden="true">✦</span>
+        <strong>{T("Offre d’ouverture", "Opening offer")}</strong>
+        <span>{T(" : votre site à partir de 750 $ jusqu’au 20 décembre.", ": your website from $750 until December 20.")}</span>
+        <a href="#contact" className="promo-link">{T("Découvrir →", "Learn more →")}</a>
+      </p>
+      <button type="button" className="promo-close" onClick={close} aria-label={T("Fermer l’offre", "Close the offer")}>
+        ✕
+      </button>
+    </div>
+  );
+};
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -437,6 +491,8 @@ function App() {
 
   return (
     <>
+      <PromoBar />
+
       {/* ================= HEADER ================= */}
       <header className="site-header">
         <div className="container header-inner">
@@ -563,7 +619,12 @@ function App() {
               </p>
             </div>
 
-            <ServicesList />
+            <div className="sv-list-wrap">
+              <ServicesList />
+              <p className="sv-note">
+                {T("Chaque projet est sur mesure. Recevez une proposition claire en 48 h.", "Every project is tailor-made. Get a clear proposal within 48 hours.")}
+              </p>
+            </div>
           </div>
         </section>
 
